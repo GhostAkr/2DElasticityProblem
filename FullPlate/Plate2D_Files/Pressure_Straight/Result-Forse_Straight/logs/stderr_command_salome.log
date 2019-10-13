@@ -1,0 +1,757 @@
+
+>>> 2019/10/13-15:54:27.123  [start@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/main.py:75]
+Command line run on 'GAKubuntuLaptop'
+using python executable '/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin/python' :
+['/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/bin/as_run',
+ '--num_job=1656-0002-GAKubuntuLaptop',
+ 'export']
+
+>>> 2019/10/13-15:54:27.124  [__init__@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:194]
+AsterSystem param :
+{'remote_copy_protocol': 'SCP', 'remote_shell_protocol': 'SSH'}
+
+>>> 2019/10/13-15:54:27.125  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:27.125  [GetMemInfo@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:872]
+cmd :
+cat /proc/meminfo
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.145  [GetMemInfo@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:879]
+GetMemInfo 'memtotal' returns : 3825
+
+>>> 2019/10/13-15:54:27.145  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:27.146  [GetCpuInfo@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:850]
+cmd :
+cat /proc/cpuinfo
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.169  [GetCpuInfo@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:858]
+GetCpuInfo 'numcpu' returns : 4
+
+>>> 2019/10/13-15:54:27.170  [get_limits@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/common_func.py:177]
+Limits returned :
+{'interactif_memmax': 3825,
+ 'interactif_mpi_nbpmax': 32,
+ 'interactif_nbpmax': 4,
+ 'interactif_tpsmax': '9999:00:00'}
+
+>>> 2019/10/13-15:54:27.170  [get_limits@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/common_func.py:177]
+Limits returned :
+{'batch_memmax': 3825,
+ 'batch_mpi_nbpmax': 32,
+ 'batch_nbpmax': 4,
+ 'batch_tpsmax': '9999:00:00'}
+
+>>> 2019/10/13-15:54:27.170  [PostConf@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/run.py:583]
+installation dirs (aster_root, confdir, localedir, LANG)
+/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801
+/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/etc/codeaster
+/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/share/locale
+en_EN.utf8
+
+>>> 2019/10/13-15:54:27.183  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:152]
+source list : (u'export',)
+destination : /tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop
+
+>>> 2019/10/13-15:54:27.184  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:152]
+cmd :
+cp -L -r export /tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.198  [_dbg@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/profil.py:46]
+P memory_limit: 2048.0    P memjob: 2097152    A memjeveux: 256.0
+
+>>> 2019/10/13-15:54:27.198  [_dbg@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/profil.py:46]
+P time_limit: 900.0    P tpsjob: 16    A tpmax: 900.0
+
+>>> 2019/10/13-15:54:27.215  [_dbg@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/profil.py:46]
+P memory_limit: 2048.0    P memjob: 2097152    A memjeveux: 256.0
+
+>>> 2019/10/13-15:54:27.216  [_dbg@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/profil.py:46]
+P time_limit: 900.0    P tpsjob: 16    A tpmax: 900.0
+
+>>> 2019/10/13-15:54:27.216  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:161]
+Input export : /tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop
+AsterProfil object   = 0x1d27ff0
+.filename            = /tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop
+P actions make_etude
+P debug nodebug
+P memjob 2097152
+P memory_limit 2048.0
+P mode interactif
+P mpi_nbcpu 1
+P mpi_nbnoeud 1
+P nomjob Pressure_Straight_Forse_Straight
+P origine AsterStudy 0.11
+P studyid 1656-0002-GAKubuntuLaptop
+P time_limit 900.0
+P tpsjob 16
+P version stable
+A memjeveux 256.0
+A tpmax 900.0
+F comm /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/Pressure_Straight_Forse_Straight.comm D  1
+F libr /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/_ExportedFromSalomeObject_0_1_2_13.med D  20
+F libr /tmp/asterstudy_workdir_root
+[...]
+
+>>> 2019/10/13-15:54:27.231  [AsterBuild@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/build.py:1416]
+version supports: ('waf', 'nocopy', 'orbinitref', 'noresu', 'use_numthreads')
+
+>>> 2019/10/13-15:54:27.231  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:27.231  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:801]
+cmd :
+bash -c env
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.250  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:802]
+env_init
+SHELL=/bin/bash
+SWIG_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Swig-2012
+SUITRoot=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome
+GMSHPLUGIN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+COLORTERM=truecolor
+PYUIC=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/bin/pyuic5
+CSF_MDTVTexturesDirectory=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/Textures
+OMNIORB_CONFIG=/tmp/.omniORB_root_last.cfg
+MMGT_REENTRANT=1
+EFICAS_NOUVEAU_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1
+SUDO_GID=1000
+OTGUI_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40
+NETGENPLUGIN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+CSF_UnitsLexicon=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/UnitsAPI/Lexi_Expr.dat
+R_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R
+OPENTURNS_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001
+SIP_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193
+LXML_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lxml-340
+TK_LIBRARY=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib/tk8.5
+PV_MACRO_PATH=/home/ghostakr/.config/salome/Macros
+GEOM_PluginsList=BREPPlugin:STEPPlugin:IGESPlugin:STLPlugin:XAOPlugin:VTKPlugin:AdvancedGEOM
+PYQT_SIPS=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/share/sip
+CSF_SHMessageStd=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/SHMessageStd
+LANGUAGE=
+TKDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513
+PYQT_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590
+CGNSHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331
+QWT_INCLUDES=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qwt-612/include
+CSF_ShHealingDefaults=/tmp/logs/root/env_2810
+KERNEL_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+MODULES_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules
+CSF_GEOMDS_ResourcesDefaults=/tmp/logs/root/env_2810
+CSF_SALOMEDS_ResourcesDefaults=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/kernel
+PLANEGCS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Planegcs-016
+NETGENHOME=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Netgen-531
+SALOMEMECA_PYUTILS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_pyutils-20180
+GMSH_BIN_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh_bin-2120Linux64/bin
+ECREVISSE_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Ecrevisse-322
+MESHGEMSHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265
+GEOM_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+ASTER_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SUDO_COMMAND=./salome
+SALOME_NETGENPluginResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/netgenplugin
+SUDO_USER=ghostakr
+LIBXML_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290
+ROOT_SALOME=/home/ghostakr/salome_meca/V2018.0.1_public
+TK_LIBRARY_SO=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib/libtk8.5.so
+GMSH_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305
+ASTER_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801
+PWD=/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778
+TOOLS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools
+ATOMGEN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+LOGNAME=root
+QT_QPA_PLATFORMTHEME=gtk2
+HELLO_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+MESHGEMS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265
+PREREQUISITES_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites
+SALOME_PLUGINS_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/plugins:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/plugins:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180/lib/python2.7/site-packages/salome
+_=/usr/bin/env
+XAUTHORITY=/tmp/xauth-1000-_0
+CSF_StandardLiteDefaults=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/StdResource
+HDF5HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814
+ASTER_STABLE=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca
+ABSOLUTE_APPLI_PATH=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+DOCUTILS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012
+MED_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+TCLDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513
+__place_holder__=0
+HOME=/home/ghostakr
+WISHEXECUTABLE=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/bin/wish8.5
+LANG=en_EN.utf8
+LIBBATCH_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+SALOME_HEXABLOCKPluginResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/hexablockplugin
+ADAO_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+NUMPY_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121
+R_LIBS=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Rotrpackage-146":/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Rotrpackage-146
+PYTHONSTARTUP=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/pythonrc.py
+SalomeAppConfig=/home/ghostakr/salome_meca/appli_V2018.0.1_public:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/gui:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/share/salome/resources/asterstudy:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/geom:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/smesh:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/paravis:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/med:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/yacs:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/openturns:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/adao:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/hybridplugin:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/netgenplugin:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/gmshplugin:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/calculator:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/europlexus::
+SALOMEMECA_MOFEM_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180
+GRAPHVIZHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380
+SALOMEPATH=/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801:/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SALOME_GMSHPluginResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/gmshplugin
+HYBRIDPLUGIN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+PARAVIS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SALOMEMECA_PLUGINS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public
+METISDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510,/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1,/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4
+PARAVIS_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules/PARAVIS_V8_5_0_meca_0
+TCL_LIBRARY_SO=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/libtcl8.5.so
+OMNIORB_USER_PATH=/tmp
+LAPACKDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lapack-370
+LIBXSLT_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128
+DISTENE_LICENSE_FILE=Use global envvar: DLIM8VAR
+CSF_XmlOcafResource=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/XmlOcafResource
+OMNIORB_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416
+APPLI=salome_meca/appli_V2018.0.1_public
+SMESH_MeshersList=StdMeshers:GMSHPlugin:NETGENPlugin:HEXABLOCKPlugin:HYBRIDPlugin
+CSF_SHMessage=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/SHMessage
+PYHELLO_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+PVVERSION=5.4
+SWIG_LIB=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Swig-2012/share/swig/2.0.12
+BOOSTDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Boost-1520
+HEXABLOCK_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+HEXABLOCKPLUGIN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+PYTHONPATH=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/python2.7/site-packages/salome/shared_modules:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/salome:/home/ghostakr/salome_meca/appli_V2018.0.1_public/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/lib/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/KERNEL_V8_5_0/bin/salome/appliskel:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Subprocess32-327/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Matplotlib-202/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scipy-0181/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Jinja-273/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_fftw-04/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_pyutils-20180/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36/lib/python2.7/site-packages/omniidl_be:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages/vtk:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages/paraview/vtk:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Rpy-103/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygobject-3140/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/modules/SMESH_V8_5_asterstudy_v011/share/salome/plugins/smesh/Verima:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_robopt-02/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/H5py-250/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_pmml-14/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Zcracks-288/plugin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_wrapy-07_EDF/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gnuplotpy-18/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1/UiQT5:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1/Editeur:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pkgconfig-110/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_mixmod-05/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome/CF:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_svm-03/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_lm-05/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lxml-340/lib/python2.7/site-packages:/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Subprocess32-327/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Matplotlib-202/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scipy-0181/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Jinja-273/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_fftw-04/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_pyutils-20180/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36/lib/python2.7/site-packages/omniidl_be:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages/vtk:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages/paraview/vtk:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Rpy-103/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygobject-3140/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/modules/SMESH_V8_5_asterstudy_v011/share/salome/plugins/smesh/Verima:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_robopt-02/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/H5py-250/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_pmml-14/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Zcracks-288/plugin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_wrapy-07_EDF/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gnuplotpy-18/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1/UiQT5:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1/Editeur:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pkgconfig-110/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_mixmod-05/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome/CF:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_svm-03/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_lm-05/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lxml-340/lib/python2.7/site-packages
+TERM=xterm-256color
+FREEIMAGE_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freeimage-3160p1
+SALOME_trace=local
+PYTHONHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710
+SALOME_HYBRIDPluginResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/hybridplugin
+USER=root
+DEBIANFORSALOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/debianForSalome
+OPENTURNS_MODULE_CONF_FILE=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_extra-20180_public/custom/config_file_template.py
+NSHOST=GAKubuntuLaptop
+HOMARD_ASTER_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Homard_aster-1110_aster
+DSCCODE_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+DLIM8VAR=dlim8 1:1:29030@10.122.51.15/005056010130::9de2ce714bcb5ec8ced9926a1087298ebeca6affe852286633abe41cb4a85b4b
+YACS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+CSF_StandardDefaults=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/StdResource
+FREETYPE_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29
+PYTHON_INCLUDE=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/include/python2.7
+OPENTURNS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SALOMEMECA_TRANSLATOR_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180
+DISPLAY=:0
+EFICAS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SCOTCHDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scotch-604
+SHLVL=2
+MATPLOTLIB_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Matplotlib-202
+MPLCONFIGDIR=/home/ghostakr/.config/salome/matplotlib-2.0.2
+CSF_MDTVFontDirectory=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/FontMFT
+CPPUNIT_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132
+CSF_PluginDefaults=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/StdResource
+GUI_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+MED3HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331
+ASTER_VERSION_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/../Code_aster_stable-v136_smeca/share/aster
+DATA_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules/SAMPLES_V8_5_0
+CASROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3
+SMESH_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+HDF5_DISABLE_VERSION_CHECK=1
+LIBBATCH_NODEFILE=nodefile-i5tAKlAjPe
+ASTER_TMPDIR=/tmp
+DISABLE_FPE=1
+TFELHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300
+LD_LIBRARY_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/lib/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Tix8.4.3:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Togl1.7:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Boost-1520/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/lib/graphviz:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lapack-370/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Muparser-132/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tbb-424/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_fftw-04/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gl2ps-14020170729/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freeimage-3160p1/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qwt-612/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Opencv-24135/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps_stable-511_aster2/SEQ/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront-TFEL311_aster/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps-512_aster4/SEQ/lib:/usr/lib/atlas-base/atlas:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_testing-v142_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_robopt-02/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_pmml-14/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265/lib/Linux_64:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Netgen-531/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_mixmod-05/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib:/usr/lib/atlas-base/atlas:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_svm-03/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Planegcs-016/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_lm-05/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/debianForSalome/lib:/lib64:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Tix8.4.3:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Togl1.7:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Boost-1520/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/lib/graphviz:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lapack-370/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Muparser-132/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tbb-424/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_fftw-04/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gl2ps-14020170729/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freeimage-3160p1/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qwt-612/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Opencv-24135/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps_stable-511_aster2/SEQ/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront-TFEL311_aster/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps-512_aster4/SEQ/lib:/usr/lib/atlas-base/atlas:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_testing-v142_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_robopt-02/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_pmml-14/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265/lib/Linux_64:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Netgen-531/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_mixmod-05/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib:/usr/lib/atlas-base/atlas:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_svm-03/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Planegcs-016/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_lm-05/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/debianForSalome/lib:/lib64
+SALOME_StdMeshersResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/smesh
+PREFS_CATA_CF=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome/CF
+NSPORT=2810
+OTMORRIS_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03
+SMESH_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules/SMESH_V8_5_asterstudy_v011
+ATOMIC_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+QTDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591
+ZCRACKSHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Zcracks-288
+MEDFICHIER_INSTALL_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331
+PYGOBJECT_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygobject-3140
+PARAVISADDONS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0
+TCL_LIBRARY=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/tcl8.5.so
+MEDCOUPLING_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0
+DISTENE_LICENCE_FILE_FOR_YAMS=Use global envvar: DLIM8VAR
+BOOST_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Boost-1520
+OMNIORBPY_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36
+QWTHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qwt-612
+PVHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2
+ASTER_TESTING=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_testing-v142_smeca
+LRELEASE=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/bin/lrelease
+OMNIORB_USERS_PATH=/tmp
+CSF_XSMessage=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/XSMessage
+CSF_UnitsDefinition=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/UnitsAPI/Units.dat
+PATH=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/outils:/home/ghostakr/salome_meca/appli_V2018.0.1_public/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Swig-2012/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Miss3d-66_aster7:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Homard_aster-1110_aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh_bin-2120Linux64/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront-TFEL311_aster/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scotch-604/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265/bin/Linux_64:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/bin:/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Swig-2012/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Miss3d-66_aster7:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Homard_aster-1110_aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh_bin-2120Linux64/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront-TFEL311_aster/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scotch-604/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265/bin/Linux_64:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+QT_QPA_PLATFORM_PLUGIN_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/plugins/platforms
+PV_PLUGIN_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/modules/PARAVIS_V8_5_0_meca_0/lib/paraview:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0/lib:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/paraview:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/modules/PARAVIS_V8_5_0_meca_0/lib/paraview:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0/lib
+SALOMEMECA_EXTRA_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_extra-20180_public
+CALCULATOR_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+DISTENE_LICENCE_FILE_FOR_MGCLEANER=Use global envvar: DLIM8VAR
+OPENCASCADE_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3
+QTVERSION=5
+SUDO_UID=1000
+ATOMSOLV_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+MAIL=/var/mail/root
+SALOME_BATCH=0
+QT_PLUGIN_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/plugins
+LIGHT_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+EFICAS_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1
+GENERICSOLVER_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+GL2PS_INSTALL_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gl2ps-14020170729
+PYLIGHT_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+NLOPT_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242
+ASTERSTUDY_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801
+PYTHONEXECUTABLE=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin/python
+CYTHON_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232
+PYGMENTS_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202
+ASTER_ETC=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/etc
+LC_NUMERIC=C
+MISS3D_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Miss3d-66_aster7
+OLDPWD=/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778
+EUROPLEXUS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+PILDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117
+
+
+>>> 2019/10/13-15:54:27.255  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:27.255  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:808]
+cmd :
+bash -c ". /home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/../Code_aster_stable-v136_smeca/share/aster/profile.sh && env"
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.284  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:809]
+env_prof
+SHELL=/bin/bash
+SWIG_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Swig-2012
+SUITRoot=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome
+GMSHPLUGIN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+COLORTERM=truecolor
+PYUIC=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/bin/pyuic5
+CSF_MDTVTexturesDirectory=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/Textures
+OMNIORB_CONFIG=/tmp/.omniORB_root_last.cfg
+MMGT_REENTRANT=1
+EFICAS_NOUVEAU_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1
+SUDO_GID=1000
+OTGUI_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40
+NETGENPLUGIN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+CSF_UnitsLexicon=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/UnitsAPI/Lexi_Expr.dat
+R_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R
+OPENTURNS_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001
+SIP_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193
+LXML_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lxml-340
+TK_LIBRARY=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib/tk8.5
+PV_MACRO_PATH=/home/ghostakr/.config/salome/Macros
+GEOM_PluginsList=BREPPlugin:STEPPlugin:IGESPlugin:STLPlugin:XAOPlugin:VTKPlugin:AdvancedGEOM
+PYQT_SIPS=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/share/sip
+CSF_SHMessageStd=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/SHMessageStd
+LANGUAGE=
+TKDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513
+PYQT_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590
+CGNSHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331
+QWT_INCLUDES=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qwt-612/include
+CSF_ShHealingDefaults=/tmp/logs/root/env_2810
+KERNEL_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+MODULES_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules
+CSF_GEOMDS_ResourcesDefaults=/tmp/logs/root/env_2810
+CSF_SALOMEDS_ResourcesDefaults=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/kernel
+PLANEGCS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Planegcs-016
+NETGENHOME=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Netgen-531
+SALOMEMECA_PYUTILS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_pyutils-20180
+GMSH_BIN_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh_bin-2120Linux64/bin
+ECREVISSE_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Ecrevisse-322
+MESHGEMSHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265
+GEOM_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+ASTER_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SUDO_COMMAND=./salome
+SALOME_NETGENPluginResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/netgenplugin
+SUDO_USER=ghostakr
+LIBXML_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290
+ROOT_SALOME=/home/ghostakr/salome_meca/V2018.0.1_public
+TK_LIBRARY_SO=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib/libtk8.5.so
+GMSH_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305
+ASTER_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801
+PWD=/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778
+TOOLS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools
+ASTER_DATADIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/share/aster
+ATOMGEN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+LOGNAME=root
+QT_QPA_PLATFORMTHEME=gtk2
+HELLO_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+MESHGEMS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265
+PREREQUISITES_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites
+SALOME_PLUGINS_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/plugins:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/plugins:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180/lib/python2.7/site-packages/salome
+XAUTHORITY=/tmp/xauth-1000-_0
+CSF_StandardLiteDefaults=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/StdResource
+HDF5HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814
+ASTER_STABLE=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca
+ABSOLUTE_APPLI_PATH=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+DOCUTILS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012
+MED_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+TCLDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513
+__place_holder__=0
+HOME=/home/ghostakr
+WISHEXECUTABLE=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/bin/wish8.5
+LANG=en_EN.utf8
+LIBBATCH_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+SALOME_HEXABLOCKPluginResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/hexablockplugin
+ADAO_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+NUMPY_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121
+R_LIBS=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Rotrpackage-146":/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Rotrpackage-146
+PYTHONSTARTUP=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/pythonrc.py
+SalomeAppConfig=/home/ghostakr/salome_meca/appli_V2018.0.1_public:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/gui:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/share/salome/resources/asterstudy:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/geom:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/smesh:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/paravis:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/med:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/yacs:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/openturns:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/adao:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/hybridplugin:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/netgenplugin:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/gmshplugin:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/calculator:/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/europlexus::
+SALOMEMECA_MOFEM_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180
+GRAPHVIZHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380
+SALOMEPATH=/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801:/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SALOME_GMSHPluginResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/gmshplugin
+HYBRIDPLUGIN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+PARAVIS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SALOMEMECA_PLUGINS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public
+METISDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510,/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1,/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4
+PARAVIS_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules/PARAVIS_V8_5_0_meca_0
+TCL_LIBRARY_SO=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/libtcl8.5.so
+OMNIORB_USER_PATH=/tmp
+LAPACKDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lapack-370
+ASTER_LIBDIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster
+LIBXSLT_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128
+DISTENE_LICENSE_FILE=Use global envvar: DLIM8VAR
+CSF_XmlOcafResource=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/XmlOcafResource
+OMNIORB_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416
+APPLI=salome_meca/appli_V2018.0.1_public
+SMESH_MeshersList=StdMeshers:GMSHPlugin:NETGENPlugin:HEXABLOCKPlugin:HYBRIDPlugin
+CSF_SHMessage=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/SHMessage
+PYHELLO_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+PVVERSION=5.4
+SWIG_LIB=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Swig-2012/share/swig/2.0.12
+BOOSTDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Boost-1520
+HEXABLOCK_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+HEXABLOCKPLUGIN_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+PYTHONPATH=.:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_mixmod-05-cm362-ot11001-py2710-sw2012/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pkgconfig-110-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/ASTER_20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Gnuplotpy-18-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_wrapy-07_EDF-ot11001-py2710-set3840/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Zcracks-288/plugin:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_pmml-14-cm362-ot11001-py2710-sw2012/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/H5py-250-cyt0232-hdf51814-num1121-py2710-set3840/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Cython-0232-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_robopt-02-cm362-ot11001-py2710-sw2012/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/SMESH_V8_5_asterstudy_v011/share/salome/plugins/smesh/Verima:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/ASTERSTUDY_201801/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/ASTERSTUDY_201801/lib/python2.7/site-packages/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pygobject-3140/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Medcoupling-V8_5_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Rpy-103EDFp3-py2710-r2151-set3840/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Paraview-v541p2EDFp2-cm362-dox1831-gl2ps140-gr2380-hd1814-xml2290-ot11001-pvdoc541-py2710-qt591nowebengine/lib/paraview-5.4/site-packages/paraview/vtk:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Paraview-v541p2EDFp2-cm362-dox1831-gl2ps140-gr2380-hd1814-xml2290-ot11001-pvdoc541-py2710-qt591nowebengine/lib/paraview-5.4/site-packages/vtk:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Paraview-v541p2EDFp2-cm362-dox1831-gl2ps140-gr2380-hd1814-xml2290-ot11001-pvdoc541-py2710-qt591nowebengine/lib/paraview-5.4/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Paraview-v541p2EDFp2-cm362-dox1831-gl2ps140-gr2380-hd1814-xml2290-ot11001-pvdoc541-py2710-qt591nowebengine/lib/paraview-5.4:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Omniorbpy-36-orb416-py2710/lib/python2.7/site-packages/omniidl_be:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Omniorbpy-36-orb416-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Libbatch-V2_4_0-cm362-py2710-sw2012/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pil-117EDFp1-ft29-py2710-tcl8513-tk8513/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_fftw-04-cm362-ot11001-py2710-sw2012/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_tool-11001-bst1520-cm362-dox1831-gr2380-la370-xm290-mpl202-mup132-num1121-py2710-r2151-ro146-sci0181-sw2012-tbb424/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Jinja-273-py2710-set3840/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Docutils-012-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Scipy-0181-la370-nu1121-py2710-sw2012/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Nlopt-242-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Matplotlib-202-num1121-pyqt590-py2710-set3840-sp32327/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Subprocess32-327-py2710-set3840/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pyqt-590-py2710-qt591nowebengine-sip4193/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Libxml2-290-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pygments-202-py2710-set3840/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Omniorb-416-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Sip-4193-py2710/lib/python2.7/site-packages:__MERCURIAL_INSTALL_PATH__/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Eficas_nouveau-V8_5_1-cm362-pyqt590-py2710-qt591nowebengine-sip4193:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Eficas_nouveau-V8_5_1-cm362-pyqt590-py2710-qt591nowebengine-sip4193/UiQT5:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Eficas_nouveau-V8_5_1-cm362-pyqt590-py2710-qt591nowebengine-sip4193/Editeur:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/lib/python2.7/site-packages/numpy-1.12.1-py2.7-linux-x86_64.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pkgconfig-110-py2710/lib/python2.7/site-packages/pkgconfig-1.1.0-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_wrapy-07_EDF-ot11001-py2710-set3840/lib/python2.7/site-packages/otwrapy-0.7-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/H5py-250-cyt0232-hdf51814-num1121-py2710-set3840/lib/python2.7/site-packages/h5py-2.5.0-py2.7-linux-x86_64.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Matplotlib-202-num1121-pyqt590-py2710-set3840-sp32327/six-1.11.0-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Omniorbpy-36-orb416-py2710/lib/python2.7/site-packages/omniORB/COS:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pil-117EDFp1-ft29-py2710-tcl8513-tk8513/lib/python2.7/site-packages/PIL:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Jinja-273-py2710-set3840/lib/python2.7/site-packages/Jinja2-2.7.3-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Jinja-273-py2710-set3840/MarkupSafe-1.0-py2.7-linux-x86_64.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Scipy-0181-la370-nu1121-py2710-sw2012/lib/python2.7/site-packages/scipy-0.18.1-py2.7-linux-x86_64.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Matplotlib-202-num1121-pyqt590-py2710-set3840-sp32327/lib/python2.7/site-packages/matplotlib-2.0.2-py2.7-linux-x86_64.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Matplotlib-202-num1121-pyqt590-py2710-set3840-sp32327/pyparsing-2.2.0-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Matplotlib-202-num1121-pyqt590-py2710-set3840-sp32327/cycler-0.10.0-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Matplotlib-202-num1121-pyqt590-py2710-set3840-sp32327/pytz-2018.4-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Matplotlib-202-num1121-pyqt590-py2710-set3840-sp32327/functools32-3.2.3.post2-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Matplotlib-202-num1121-pyqt590-py2710-set3840-sp32327/python_dateutil-2.7.2-py2.7.egg:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pygments-202-py2710-set3840/lib/python2.7/site-packages/Pygments-2.0.2-py2.7.egg:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/python2.7/site-packages/salome/shared_modules:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/salome:/home/ghostakr/salome_meca/appli_V2018.0.1_public/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/lib/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/KERNEL_V8_5_0/bin/salome/appliskel:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Subprocess32-327/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Matplotlib-202/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scipy-0181/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Jinja-273/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_fftw-04/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_pyutils-20180/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36/lib/python2.7/site-packages/omniidl_be:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages/vtk:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages/paraview/vtk:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Rpy-103/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygobject-3140/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/modules/SMESH_V8_5_asterstudy_v011/share/salome/plugins/smesh/Verima:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_robopt-02/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/H5py-250/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_pmml-14/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Zcracks-288/plugin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_wrapy-07_EDF/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gnuplotpy-18/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1/UiQT5:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1/Editeur:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pkgconfig-110/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_mixmod-05/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome/CF:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_svm-03/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_lm-05/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lxml-340/lib/python2.7/site-packages:/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Subprocess32-327/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Matplotlib-202/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scipy-0181/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Jinja-273/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_fftw-04/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_pyutils-20180/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36/lib/python2.7/site-packages/omniidl_be:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages/vtk:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4/site-packages/paraview/vtk:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Rpy-103/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygobject-3140/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/modules/SMESH_V8_5_asterstudy_v011/share/salome/plugins/smesh/Verima:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_robopt-02/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/H5py-250/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_pmml-14/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Zcracks-288/plugin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_wrapy-07_EDF/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gnuplotpy-18/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1/UiQT5:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1/Editeur:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pkgconfig-110/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_mixmod-05/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome/CF:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_mofem-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_svm-03/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_lm-05/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lxml-340/lib/python2.7/site-packages
+TERM=xterm-256color
+FREEIMAGE_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freeimage-3160p1
+SALOME_trace=local
+ASTER_LOCALEDIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/share/locale/aster
+PYTHONHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710
+SALOME_HYBRIDPluginResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/hybridplugin
+USER=root
+DEBIANFORSALOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/debianForSalome
+OPENTURNS_MODULE_CONF_FILE=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_extra-20180_public/custom/config_file_template.py
+NSHOST=GAKubuntuLaptop
+HOMARD_ASTER_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Homard_aster-1110_aster
+DSCCODE_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+DLIM8VAR=dlim8 1:1:29030@10.122.51.15/005056010130::9de2ce714bcb5ec8ced9926a1087298ebeca6affe852286633abe41cb4a85b4b
+YACS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+CSF_StandardDefaults=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/StdResource
+FREETYPE_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29
+PYTHON_INCLUDE=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/include/python2.7
+OPENTURNS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SALOMEMECA_TRANSLATOR_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_translator-20180
+DISPLAY=:0
+EFICAS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+SCOTCHDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scotch-604
+SHLVL=2
+MATPLOTLIB_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Matplotlib-202
+MPLCONFIGDIR=/home/ghostakr/.config/salome/matplotlib-2.0.2
+CSF_MDTVFontDirectory=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/FontMFT
+CPPUNIT_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132
+CSF_PluginDefaults=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/StdResource
+GUI_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+MED3HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331
+ASTER_VERSION_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/../Code_aster_stable-v136_smeca/share/aster
+DATA_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules/SAMPLES_V8_5_0
+CASROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3
+SMESH_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+HDF5_DISABLE_VERSION_CHECK=1
+LIBBATCH_NODEFILE=nodefile-i5tAKlAjPe
+ASTER_TMPDIR=/tmp
+DISABLE_FPE=1
+TFELHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300
+LD_LIBRARY_PATH=.:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/../Code_aster_stable-v136_smeca/share/aster/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lapack-370/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps_stable-511_aster2/SEQ/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps_stable-511_aster2/SEQ/libseq:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scotch_aster_s-604_aster6/SEQ/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_mixmod-05-cm362-ot11001-py2710-sw2012/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Paravisaddons-V8_5_0_meca_0-cm362/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Netgen-531-occ720p3-tcl8513-tix843-tk8513-togl17/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Meshgems-265/lib/Linux_64:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Libxslt-1128-xml290/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_pmml-14-cm362-ot11001-py2710-sw2012/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Gmsh-305-cm362-la370-occ720p3-tbb424/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_robopt-02-cm362-ot11001-py2710-sw2012/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Medcoupling-V8_5_0/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Metis-510/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Mumps-512_aster4/SEQ/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Mfront-TFEL311_aster/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Opencv-24135-cm362-py2710-tbb424/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Qwt-612-qt591nowebengine/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Paraview-v541p2EDFp2-cm362-dox1831-gl2ps140-gr2380-hd1814-xml2290-ot11001-pvdoc541-py2710-qt591nowebengine/lib/paraview-5.4:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Occ-720p3-freeimg3160-freetp29-gl2ps140-tbb424/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Freeimage-3160p1/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/tools/install/Libbatch-V2_4_0-cm362-py2710-sw2012/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Cppunit-1132/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Gl2ps-14020170729EDFp1-cm362/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Freetype-29/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Metis_aster-510_aster4/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_fftw-04-cm362-ot11001-py2710-sw2012/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_tool-11001-bst1520-cm362-dox1831-gr2380-la370-xm290-mpl202-mup132-num1121-py2710-r2151-ro146-sci0181-sw2012-tbb424/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Tbb-424/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/R-2151/lib/R/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Nlopt-242-py2710/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Muparser-132/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Qt-591_nowebgine/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Libxml2-290-py2710/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Graphviz-2380/lib/graphviz:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Graphviz-2380/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Boost-1520-py2710/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Togl1.7:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Cgnslib-331-cm362-hd1814/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Omniorb-416-py2710/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Tix8.4.3:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Sip-4193-py2710/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/GENERICSOLVER_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/HYBRIDPLUGIN_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/YACS_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/EFICAS_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/HEXABLOCKPLUGIN_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/HEXABLOCK_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/ATOMSOLV_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/PARAVIS_V8_5_0_meca_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/SMESH_V8_5_asterstudy_v011/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/MED_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/ASTERSTUDY_201801/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/PYHELLO1_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/HELLO1_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/ATOMGEN_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/ATOMIC_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/GEOM_V8_5_0/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/GUI_V8_5_asterstudy_v011/lib/salome:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/KERNEL_V8_5_0/lib/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/lib/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Tix8.4.3:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Togl1.7:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Boost-1520/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/lib/graphviz:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lapack-370/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Muparser-132/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tbb-424/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_fftw-04/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gl2ps-14020170729/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freeimage-3160p1/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qwt-612/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Opencv-24135/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps_stable-511_aster2/SEQ/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront-TFEL311_aster/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps-512_aster4/SEQ/lib:/usr/lib/atlas-base/atlas:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_testing-v142_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_robopt-02/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_pmml-14/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265/lib/Linux_64:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Netgen-531/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_mixmod-05/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib:/usr/lib/atlas-base/atlas:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_svm-03/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Planegcs-016/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_lm-05/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/debianForSalome/lib:/lib64:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Tix8.4.3:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/Togl1.7:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Boost-1520/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/lib/graphviz:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lapack-370/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Muparser-132/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tbb-424/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_tool-11001/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_fftw-04/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gl2ps-14020170729/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Libbatch-V2_4_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freeimage-3160p1/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qwt-612/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Opencv-24135/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps_stable-511_aster2/SEQ/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront-TFEL311_aster/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps-512_aster4/SEQ/lib:/usr/lib/atlas-base/atlas:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_testing-v142_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_robopt-02/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_pmml-14/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265/lib/Linux_64:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Netgen-531/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_mixmod-05/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib:/usr/lib/atlas-base/atlas:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_svm-03/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Planegcs-016/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03/lib:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_lm-05/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/debianForSalome/lib:/lib64
+SALOME_StdMeshersResources=/home/ghostakr/salome_meca/appli_V2018.0.1_public/share/salome/resources/smesh
+PREFS_CATA_CF=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_plugins-20180_public/lib/python2.7/site-packages/salome/CF
+NSPORT=2810
+OTMORRIS_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Openturns_morris-03
+SMESH_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules/SMESH_V8_5_asterstudy_v011
+ATOMIC_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+QTDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591
+ZCRACKSHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Zcracks-288
+MEDFICHIER_INSTALL_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331
+PYGOBJECT_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygobject-3140
+PARAVISADDONS_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0
+TCL_LIBRARY=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/lib/tcl8.5.so
+MEDCOUPLING_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0
+DISTENE_LICENCE_FILE_FOR_YAMS=Use global envvar: DLIM8VAR
+BOOST_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Boost-1520
+OMNIORBPY_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorbpy-36
+QWTHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qwt-612
+PVHOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2
+ASTER_TESTING=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_testing-v142_smeca
+LRELEASE=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/bin/lrelease
+OMNIORB_USERS_PATH=/tmp
+CSF_XSMessage=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/XSMessage
+CSF_UnitsDefinition=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3/src/UnitsAPI/Units.dat
+PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/outils:/home/ghostakr/salome_meca/appli_V2018.0.1_public/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Swig-2012/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Miss3d-66_aster7:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Homard_aster-1110_aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh_bin-2120Linux64/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront-TFEL311_aster/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scotch-604/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265/bin/Linux_64:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/bin:/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Omniorb-416/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cgnslib-331/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Graphviz-2380/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxml2-290/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Swig-2012/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pyqt-590/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/R-2151/lib/R/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Docutils-012/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Freetype-29/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Miss3d-66_aster7:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cppunit-1132/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Homard_aster-1110_aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh_bin-2120Linux64/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront-TFEL311_aster/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster-510_aster4:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis-510/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Scotch-604/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Medcoupling-V8_5_0/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gmsh-305/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Libxslt-1128/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Meshgems-265/bin/Linux_64:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Otgui-v40/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+QT_QPA_PLATFORM_PLUGIN_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/plugins/platforms
+PV_PLUGIN_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/modules/PARAVIS_V8_5_0_meca_0/lib/paraview:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0/lib:/home/ghostakr/salome_meca/appli_V2018.0.1_public/lib/paraview:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Paraview-v541p2/lib/paraview-5.4:/home/ghostakr/salome_meca/V2018.0.1_public/modules/PARAVIS_V8_5_0_meca_0/lib/paraview:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Paravisaddons-V8_5_0_meca_0/lib
+SALOMEMECA_EXTRA_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Salomemeca_extra-20180_public
+CALCULATOR_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+DISTENE_LICENCE_FILE_FOR_MGCLEANER=Use global envvar: DLIM8VAR
+OPENCASCADE_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Occ-720p3
+QTVERSION=5
+SUDO_UID=1000
+ASTER_ELEMENTSDIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster
+ATOMSOLV_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+MAIL=/var/mail/root
+SALOME_BATCH=0
+QT_PLUGIN_PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Qt-591/plugins
+LIGHT_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+EFICAS_ROOT=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Eficas_nouveau-V8_5_1
+GENERICSOLVER_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+GL2PS_INSTALL_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Gl2ps-14020170729
+PYLIGHT_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+NLOPT_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Nlopt-242
+ASTERSTUDY_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801
+PYTHONEXECUTABLE=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin/python
+CYTHON_ROOT_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Cython-0232
+PYGMENTS_HOME=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pygments-202
+ASTER_ETC=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/etc
+LC_NUMERIC=C
+MISS3D_DIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Miss3d-66_aster7
+OLDPWD=/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778
+EUROPLEXUS_ROOT_DIR=/home/ghostakr/salome_meca/appli_V2018.0.1_public
+PILDIR=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Pil-117
+_=/usr/bin/env
+
+
+>>> 2019/10/13-15:54:27.286  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:817]
+AddToEnv set : PYTHONPATH=.:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Numpy-1121/lib/python2.7/site-packages:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Openturns_mixmod-05-cm362-ot11001-py2710-sw2012/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/prerequisites/install/Pkgconfig-110-py2710/lib/python2.7/site-packages:/home/A21173/smeca/yamm_build/V2018.0.1_public_build/V2018_public/modules/install/ASTER_20180/lib/python2.7/site-packages/salome:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-2018
+[...]
+
+>>> 2019/10/13-15:54:27.287  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:817]
+AddToEnv set : ASTER_LOCALEDIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/share/locale/aster
+
+>>> 2019/10/13-15:54:27.287  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:817]
+AddToEnv set : ASTER_DATADIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/share/aster
+
+>>> 2019/10/13-15:54:27.287  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:817]
+AddToEnv set : LD_LIBRARY_PATH=.:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/../Code_aster_stable-v136_smeca/share/aster/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Hdf5-1814/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Lapack-370/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Medfichier-331/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Metis_aster_s-510_aster1/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps_stable-511_aster2/SEQ/lib:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mumps_stable-511_aster2/SEQ/libseq:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2
+[...]
+
+>>> 2019/10/13-15:54:27.288  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:817]
+AddToEnv set : ASTER_LIBDIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster
+
+>>> 2019/10/13-15:54:27.289  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:817]
+AddToEnv set : ASTER_ELEMENTSDIR=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster
+
+>>> 2019/10/13-15:54:27.290  [AddToEnv@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:817]
+AddToEnv set : PATH=/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Mfront_stable-TFEL300/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/bin:/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/outils:/home/ghostakr/salome_meca/appli_V2018.0.1_public/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/modules/ASTERSTUDY_201801/bin/salome:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tcl-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Tk-8513/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Python-2710/bin:/home/ghostakr/salome_meca/V2018.0.1_public/prerequisites/Sip-4193/bin:/home/ghostakr/salome_meca/V2
+[...]
+
+>>> 2019/10/13-15:54:27.293  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:201]
+set_rep_trav() > local=/tmp/root-GAKubuntuLaptop-interactif_1656-0002-GAKubuntuLaptop, global=/tmp/root-GAKubuntuLaptop-interactif_1656-0002-GAKubuntuLaptop
+
+>>> 2019/10/13-15:54:27.301  [_dbg@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/profil.py:46]
+P memory_limit: 2048.0    P memjob: 2097152    A memjeveux: 256.0
+
+>>> 2019/10/13-15:54:27.301  [_dbg@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/profil.py:46]
+P time_limit: 900.0    P tpsjob: 16    A tpmax: 900.0
+
+>>> 2019/10/13-15:54:27.301  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:208]
+source list : ('/tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop',)
+destination : export
+
+>>> 2019/10/13-15:54:27.302  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:208]
+cmd :
+cp -L -r /tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop export
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.312  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:221]
+source list : ('/tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop',)
+destination : /tmp/root-GAKubuntuLaptop-interactif_1656-0002-GAKubuntuLaptop/1656-0002-GAKubuntuLaptop.export
+
+>>> 2019/10/13-15:54:27.312  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:221]
+cmd :
+cp -L -r /tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop /tmp/root-GAKubuntuLaptop-interactif_1656-0002-GAKubuntuLaptop/1656-0002-GAKubuntuLaptop.export
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.322  [RunAster@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execute.py:402]
+Start make_etude/make_env/make_dbg action
+
+>>> 2019/10/13-15:54:27.323  [copyfileD@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:571]
+source list : (u'/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/Pressure_Straight_Forse_Straight.comm',)
+destination : fort.1.1
+
+>>> 2019/10/13-15:54:27.324  [copyfileD@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:571]
+cmd :
+cp -L -r /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/Pressure_Straight_Forse_Straight.comm fort.1.1
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.336  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:27.336  [_check_filetype@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:708]
+cmd :
+file fort.1.1
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.448  [copyfileD@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:571]
+source list : (u'/tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/_ExportedFromSalomeObject_0_1_2_13.med',)
+destination : fort.20
+
+>>> 2019/10/13-15:54:27.452  [copyfileD@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:571]
+cmd :
+cp -L -r /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/_ExportedFromSalomeObject_0_1_2_13.med fort.20
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.471  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:27.471  [_check_filetype@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:708]
+cmd :
+file fort.20
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.487  [execute@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:103]
+version supports: waf (True), nosuperv (False), orbinitref (True), numthreads (True)
+
+>>> 2019/10/13-15:54:27.501  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:27.501  [execute@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:282]
+cmd :
+ls -la
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.512  [SetLimit@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:946]
+['core', 'RLIMIT_CORE', [-1, -1]]
+
+>>> 2019/10/13-15:54:27.512  [execute@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:343]
+source list : ('fort.1.1',)
+destination : fort.1
+
+>>> 2019/10/13-15:54:27.513  [execute@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:343]
+cmd :
+cp -L -r fort.1.1 fort.1
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:27.522  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:27.522  [execute@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:374]
+cmd :
+( /home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/bin/aster /home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_stable-v136_smeca/lib/aster/Execution/E_SUPERV.py -commandes fort.1 --num_job=1656-0002-GAKubuntuLaptop --mode=interactif --rep_outils=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/outils --rep_mat=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/../Code_aster_stable-v136_smeca/share/aster/materiau --rep_dex=/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/../Code_aster_stable-v136_smeca/share/aster/datg --numthreads=2 --suivi_batch --memjeveux=256.0 --tpmax=900.0 ; echo EXECUTION_CODE_ASTER_EXIT_1656-0002-GAKubuntuLaptop=$? ) | tee fort.6 ; exit `grep -a EXECUTION_CODE_ASTER_EXIT_1656-0002-GAKubuntuLaptop fort.6 | head -1 | sed -e 's/EXECUTION_CODE_ASTER_EXIT_1656-0002-GAKubuntuLaptop=//'`
+background : False
+follow_output : True
+
+>>> 2019/10/13-15:54:31.506  [_diag_erre@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/build.py:1492]
+n_debut=1, n_fin=1, mess=False : ok=True
+
+>>> 2019/10/13-15:54:31.506  [_diag_erre@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/build.py:1493]
+alarm=False, errs=False, fatal=False, exitcode=0
+
+>>> 2019/10/13-15:54:31.506  [getDiag@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/build.py:1209]
+Fichier : fort.6
+_diag_erre : OK
+
+>>> 2019/10/13-15:54:31.508  [getDiag@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/build.py:1225]
+Fichier : fort.6
+_diag_resu : OK
+
+>>> 2019/10/13-15:54:31.511  [_diag_erre@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/build.py:1492]
+n_debut=1, n_fin=1, mess=True : ok=True
+
+>>> 2019/10/13-15:54:31.511  [_diag_erre@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/build.py:1493]
+alarm=False, errs=False, fatal=False, exitcode=0
+
+>>> 2019/10/13-15:54:31.511  [getDiag@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/build.py:1227]
+Fichier : fort.6
+_diag_erre : OK
+
+>>> 2019/10/13-15:54:31.512  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:31.512  [execute@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:493]
+cmd :
+ls -la . REPE_OUT
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:31.526  [copyfileR@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:670]
+source list : ('fort.80',)
+destination : /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/Plate_Result.rmed
+
+>>> 2019/10/13-15:54:31.526  [copyfileR@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:670]
+cmd :
+cp -L -r fort.80 /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/Plate_Result.rmed
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:31.537  [copyfileR@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:670]
+source list : ('fort.6',)
+destination : /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/message
+
+>>> 2019/10/13-15:54:31.537  [copyfileR@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:670]
+cmd :
+cp -L -r fort.6 /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/message
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:31.546  [Gzip@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:552]
+cmd :
+gzip glob.1
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:32.639  [Gzip@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:552]
+cmd :
+gzip pick.1
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:32.811  [copyfileR@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:670]
+source list : ('glob.1.gz', 'pick.1.gz')
+destination : /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/base-stage1
+
+>>> 2019/10/13-15:54:32.811  [copyfileR@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:670]
+cmd :
+cp -L -r glob.1.gz /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/base-stage1
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:32.823  [copyfileR@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/execution.py:670]
+cmd :
+cp -L -r pick.1.gz /tmp/asterstudy_workdir_root/root-GAKubuntuLaptop-Sun-13-155425.778/base-stage1
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:32.834  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:32.834  [_clear_tmp@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/run.py:483]
+cmd :
+\rm -rf /tmp/astk_root/root-GAKubuntuLaptop-profil_astk_1656-0002-GAKubuntuLaptop
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:32.844  [Shell@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/system.py:517]
+remote command ( <> GAKubuntuLaptop and root <> root) ? False
+
+>>> 2019/10/13-15:54:32.845  [_clear_tmp@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/run.py:483]
+cmd :
+\rm -rf /tmp/root-GAKubuntuLaptop-interactif_1656-0002-GAKubuntuLaptop
+background : False
+follow_output : False
+
+>>> 2019/10/13-15:54:32.855  [Sortie@/home/ghostakr/salome_meca/V2018.0.1_public/tools/Code_aster_frontend-201801/lib/python2.7/site-packages/asrun/run.py:732]
+exit 0
