@@ -1,0 +1,34 @@
+{
+  "history": {
+    "cases": [
+      {
+        "name": "CurrentCase",
+        "stages": [
+          1
+        ]
+      }
+    ],
+    "stages": [
+      {
+        "name": "Stage_1",
+        "text": "TheMesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh3 = MODI_MAILLAGE()",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 1
+        },
+        "uid": 1
+      }
+    ],
+    "aster": "stable",
+    "versionMajor": 14,
+    "versionMinor": 4
+  },
+  "minor": 10
+}

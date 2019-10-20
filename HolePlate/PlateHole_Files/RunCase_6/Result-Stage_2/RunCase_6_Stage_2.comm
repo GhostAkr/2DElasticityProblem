@@ -1,0 +1,97 @@
+DEBUT(LANG='EN')
+
+
+mesh = LIRE_MAILLAGE(identifier='0:1',
+                     FORMAT='MED',
+                     UNITE=20)
+
+mesh = MODI_MAILLAGE(identifier='1:1',
+                     reuse=mesh,
+                     MAILLAGE=mesh,
+                     ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', )))
+
+model = AFFE_MODELE(identifier='2:1',
+                    AFFE=_F(MODELISATION=('C_PLAN', ),
+                            PHENOMENE='MECANIQUE',
+                            TOUT='OUI'),
+                    MAILLAGE=mesh)
+
+Steel = DEFI_MATERIAU(identifier='3:1',
+                      ELAS=_F(E=20000.0,
+                              NU=0.3))
+
+fieldmat = AFFE_MATERIAU(identifier='4:1',
+                         AFFE=_F(MATER=(Steel, ),
+                                 TOUT='OUI'),
+                         MODELE=model)
+
+PlateBC = AFFE_CHAR_MECA(identifier='5:1',
+                         DDL_IMPO=_F(DX=0.0,
+                                     DY=0.0,
+                                     GROUP_MA=('AB_Group', )),
+                         MODELE=model)
+
+PlateLD = AFFE_CHAR_MECA(identifier='6:1',
+                         MODELE=model,
+                         PRES_REP=_F(GROUP_MA=('BC_Group', ),
+                                     PRES=1000.0))
+
+Result = MECA_STATIQUE(identifier='7:1',
+                       CHAM_MATER=fieldmat,
+                       EXCIT=(_F(CHARGE=PlateBC),
+                              _F(CHARGE=PlateLD)),
+                       MODELE=model)
+
+Result = CALC_CHAMP(identifier='8:1',
+                    reuse=Result,
+                    CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'),
+                    CRITERES=('SIEQ_ELNO', ),
+                    DEFORMATION=('EPSI_ELNO', ),
+                    RESULTAT=Result)
+
+IMPR_RESU(identifier='9:1',
+          FORMAT='MED',
+          RESU=_F(RESULTAT=Result),
+          UNITE=80)
+
+mesh1 = LIRE_MAILLAGE(identifier='0:2',
+                      FORMAT='MED',
+                      UNITE=20)
+
+model1 = AFFE_MODELE(identifier='1:2',
+                     AFFE=_F(MODELISATION=('C_PLAN', ),
+                             PHENOMENE='MECANIQUE',
+                             TOUT='OUI'),
+                     MAILLAGE=mesh)
+
+Steel1 = DEFI_MATERIAU(identifier='2:2',
+                       ELAS=_F(E=20000.0,
+                               NU=0.3))
+
+fieldma1 = AFFE_MATERIAU(identifier='3:2',
+                         AFFE=_F(MATER=(Steel, ),
+                                 TOUT='OUI'),
+                         MODELE=model)
+
+BC1 = AFFE_CHAR_MECA(identifier='4:2',
+                     DDL_IMPO=_F(DX=0.0,
+                                 DY=0.0,
+                                 GROUP_MA=('AB_Group', )),
+                     MODELE=model)
+
+LD1 = AFFE_CHAR_MECA(identifier='5:2',
+                     MODELE=model,
+                     PRES_REP=_F(GROUP_MA=('BC_Group', ),
+                                 PRES=0.0))
+
+Result1 = MECA_STATIQUE(identifier='6:2',
+                        CHAM_MATER=fieldmat,
+                        EXCIT=_F(CHARGE=BC1),
+                        MODELE=model)
+
+IMPR_RESU(identifier='7:2',
+          FORMAT='MED',
+          RESU=_F(RESULTAT=Result1),
+          UNITE=2)
+
+FIN()

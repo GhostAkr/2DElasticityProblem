@@ -1,0 +1,978 @@
+{
+  "history": {
+    "cases": [
+      {
+        "name": "RunCase_1",
+        "stages": [
+          1
+        ],
+        "baseFolder": "RunCase_1"
+      },
+      {
+        "name": "RunCase_2",
+        "stages": [
+          2
+        ],
+        "baseFolder": "RunCase_2"
+      },
+      {
+        "name": "RunCase_3",
+        "stages": [
+          3
+        ],
+        "baseFolder": "RunCase_3"
+      },
+      {
+        "name": "RunCase_4",
+        "stages": [
+          4
+        ],
+        "baseFolder": "RunCase_4"
+      },
+      {
+        "name": "RunCase_5",
+        "stages": [
+          5
+        ],
+        "baseFolder": "RunCase_5"
+      },
+      {
+        "name": "RunCase_6",
+        "stages": [
+          6
+        ],
+        "baseFolder": "RunCase_6"
+      },
+      {
+        "name": "RunCase_7",
+        "stages": [
+          7,
+          8
+        ],
+        "baseFolder": "RunCase_7"
+      },
+      {
+        "name": "RunCase_8",
+        "stages": [
+          9,
+          10
+        ],
+        "baseFolder": "RunCase_8"
+      },
+      {
+        "name": "RunCase_9",
+        "stages": [
+          11,
+          12
+        ],
+        "baseFolder": "RunCase_9"
+      },
+      {
+        "name": "RunCase_10",
+        "stages": [
+          13,
+          14
+        ],
+        "baseFolder": "RunCase_10"
+      },
+      {
+        "name": "RunCase_11",
+        "stages": [
+          15,
+          16
+        ],
+        "baseFolder": "RunCase_11"
+      },
+      {
+        "name": "RunCase_12",
+        "stages": [
+          17,
+          18
+        ],
+        "baseFolder": "RunCase_12"
+      },
+      {
+        "name": "RunCase_13",
+        "stages": [
+          19,
+          20
+        ],
+        "baseFolder": "RunCase_13"
+      },
+      {
+        "name": "RunCase_14",
+        "stages": [
+          21
+        ],
+        "baseFolder": "RunCase_14"
+      },
+      {
+        "name": "RunCase_15",
+        "stages": [
+          22
+        ],
+        "baseFolder": "RunCase_15"
+      },
+      {
+        "name": "RunCase_16",
+        "stages": [
+          23
+        ],
+        "baseFolder": "RunCase_16"
+      },
+      {
+        "name": "RunCase_17",
+        "stages": [
+          24
+        ],
+        "baseFolder": "RunCase_17"
+      },
+      {
+        "name": "RunCase_18",
+        "stages": [
+          25
+        ],
+        "baseFolder": "RunCase_18"
+      },
+      {
+        "name": "RunCase_19",
+        "stages": [
+          26,
+          27
+        ],
+        "baseFolder": "RunCase_19"
+      },
+      {
+        "name": "CurrentCase",
+        "stages": [
+          26,
+          27
+        ]
+      }
+    ],
+    "stages": [
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('D_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=1000.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_TRAC', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "0",
+            "mode": "Interactive",
+            "name": "RunCase_1_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:08:50 2019",
+            "endTime": "Sun Oct 20 16:09:00 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_1_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_1/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-160850.855</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_1/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_1/Result-Stage_1/RunCase_1_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_1/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_1/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 32
+        },
+        "uid": 1,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=1000.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_TRAC', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "1",
+            "mode": "Interactive",
+            "name": "RunCase_2_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:10:46 2019",
+            "endTime": "Sun Oct 20 16:10:56 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_2_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_2/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-161046.715</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_2/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_2/Result-Stage_1/RunCase_2_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_2/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_2/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 32
+        },
+        "uid": 2
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=1000.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "2",
+            "mode": "Interactive",
+            "name": "RunCase_3_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:14:30 2019",
+            "endTime": "Sun Oct 20 16:14:40 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_3_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_3/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-161430.765</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_3/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_3/Result-Stage_1/RunCase_3_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_3/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_3/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 3
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=100.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "3",
+            "mode": "Interactive",
+            "name": "RunCase_4_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:17:25 2019",
+            "endTime": "Sun Oct 20 16:17:35 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_4_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_4/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-161725.265</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_4/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_4/Result-Stage_1/RunCase_4_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_4/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_4/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 4
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-5.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "4",
+            "mode": "Interactive",
+            "name": "RunCase_5_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:19:20 2019",
+            "endTime": "Sun Oct 20 16:19:29 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_5_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_5/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-161919.988</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_5/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_5/Result-Stage_1/RunCase_5_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_5/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_5/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 5
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\npres = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 1.0, 1.0, 0.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-5.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD, FONC_MULT=pres)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "5",
+            "mode": "Interactive",
+            "name": "RunCase_6_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:26:07 2019",
+            "endTime": "Sun Oct 20 16:26:17 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_6_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_6/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-162607.722</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_6/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_6/Result-Stage_1/RunCase_6_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_6/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_6/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 32
+        },
+        "uid": 6
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-5.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 7,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel1 = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr1 = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nload1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nresnonl1 = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "6",
+            "mode": "Interactive",
+            "name": "RunCase_7_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:34:10 2019",
+            "endTime": "Sun Oct 20 16:34:19 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_7_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_7/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-163410.071</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_7/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_7/Result-Stage_2/RunCase_7_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_7/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_7/Result-Stage_2/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>Result1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 8
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-5.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 9
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel1 = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr1 = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=0.0))\n\nresnonl1 = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "7",
+            "mode": "Interactive",
+            "name": "RunCase_8_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:39:20 2019",
+            "endTime": "Sun Oct 20 16:39:29 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_8_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_8/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-163919.906</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_8/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_8/Result-Stage_2/RunCase_8_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_8/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_8/Result-Stage_2/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>Result1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 10
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-1000.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 11
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel1 = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr1 = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=0.0))\n\nresnonl1 = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "8",
+            "mode": "Interactive",
+            "name": "RunCase_9_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:10:15 2019",
+            "endTime": "Sun Oct 20 17:10:25 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_9_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_9/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-171015.525</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_9/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_9/Result-Stage_2/RunCase_9_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_9/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_9/Result-Stage_2/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>Result1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 12
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10000.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 13
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel1 = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr1 = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=0.0))\n\nresnonl1 = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "9",
+            "mode": "Interactive",
+            "name": "RunCase_10_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:22:59 2019",
+            "endTime": "Sun Oct 20 17:23:08 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_10_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_10/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-172258.921</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_10/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_10/Result-Stage_2/RunCase_10_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_10/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_10/Result-Stage_2/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>Result1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 14
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-100.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 15
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel1 = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr1 = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=0.0))\n\nresnonl1 = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "10",
+            "mode": "Interactive",
+            "name": "RunCase_11_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:24:57 2019",
+            "endTime": "Sun Oct 20 17:25:06 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_11_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_11/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-172457.075</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_11/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_11/Result-Stage_2/RunCase_11_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_11/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_11/Result-Stage_2/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>Result1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 16
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 17,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel1 = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr1 = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=0.0))\n\nresnonl1 = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "11",
+            "mode": "Interactive",
+            "name": "RunCase_12_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:27:42 2019",
+            "endTime": "Sun Oct 20 17:27:51 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_12_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_12/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-172741.934</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_12/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_12/Result-Stage_2/RunCase_12_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_12/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_12/Result-Stage_2/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>Result1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 18
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 160
+        },
+        "uid": 19
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel1 = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr1 = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nresnonl1 = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=_F(CHARGE=BC), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "12",
+            "mode": "Interactive",
+            "name": "RunCase_13_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:45:01 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_13_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_13/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-174501.041</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_13/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_13/Result-Stage_2/RunCase_13_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_13/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_13/Result-Stage_2/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>Result1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>RUNNING</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 32
+        },
+        "uid": 20
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nfunc1 = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 1.0, 1.0, 0.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD, FONC_MULT=func1)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "13",
+            "mode": "Interactive",
+            "name": "RunCase_14_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:53:05 2019",
+            "endTime": "Sun Oct 20 17:53:14 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_14_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_14/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-175305.195</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_14/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_14/Result-Stage_1/RunCase_14_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_14/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_14/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 32
+        },
+        "uid": 21
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nfunc1 = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 0.0, 1.0, 1.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD, FONC_MULT=func1)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "14",
+            "mode": "Interactive",
+            "name": "RunCase_15_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:54:12 2019",
+            "endTime": "Sun Oct 20 17:54:22 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_15_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_15/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-175412.328</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_15/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_15/Result-Stage_1/RunCase_15_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_15/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_15/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 22
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nfunc1 = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 0.0, 1.0, 1.0, 2.0, 0.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD, FONC_MULT=func1)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "15",
+            "mode": "Interactive",
+            "name": "RunCase_16_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:58:52 2019",
+            "endTime": "Sun Oct 20 17:59:01 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_16_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_16/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-175851.948</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_16/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_16/Result-Stage_1/RunCase_16_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_16/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_16/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 23
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=10.0, PAS=1.0))\n\nfunc1 = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 0.0, 5.0, 5.0, 10.0, 0.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD, FONC_MULT=func1)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "16",
+            "mode": "Interactive",
+            "name": "RunCase_17_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 18:01:41 2019",
+            "endTime": "Sun Oct 20 18:01:51 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_17_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_17/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-180141.709</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_17/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_17/Result-Stage_1/RunCase_17_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_17/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_17/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 24
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=100.0, PAS=1.0))\n\nfunc1 = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 0.0, 50.0, 50.0, 100.0, 0.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD, FONC_MULT=func1)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "17",
+            "mode": "Interactive",
+            "name": "RunCase_18_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 18:06:31 2019",
+            "endTime": "Sun Oct 20 18:06:45 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_18_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_18/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-180630.950</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_18/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_18/Result-Stage_1/RunCase_18_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_18/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_18/Result-Stage_1/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 25
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel0 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=100.0, PAS=1.0))\n\nfunc1 = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 0.0, 50.0, 50.0))\n\nBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nResult = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC), _F(CHARGE=LD, FONC_MULT=func1)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 26,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nsteel1 = DEFI_MATER_GC(ACIER=_F(E=200000000000.0, NU=0.3, SY=400000000.0))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(steel, ), TOUT='OUI'), MODELE=model0)\n\nlistr1 = DEFI_LIST_REEL(DEBUT=0.0, INTERVALLE=_F(JUSQU_A=100.0, PAS=1.0))\n\nfunc = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 0.0, 50.0, 50.0, 100.0, 0.0))\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model0)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model0, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-10.0))\n\nresnonl1 = STAT_NON_LINE(CHAM_MATER=fieldmat, COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE', TOUT='OUI'), CONVERGENCE=_F(ITER_GLOB_MAXI=100), EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1, FONC_MULT=func)), INCREMENT=_F(LIST_INST=listr), METHODE='NEWTON', MODELE=model0, NEWTON=_F(MATRICE='TANGENTE'))\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:4:3",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/Result1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "18",
+            "mode": "Interactive",
+            "name": "RunCase_19_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 18:14:24 2019",
+            "endTime": "Sun Oct 20 18:14:39 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_19_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_19/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-181423.989</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_19/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_19/Result-Stage_2/RunCase_19_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_19/Result-Stage_1/_ExportedFromSalomeObject_0_1_4_3.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/NonlinearPlastic/NonlinearPlastic_Files/RunCase_19/Result-Stage_2/export</in_file>\n        <out_file>Result.rmed</out_file>\n        <out_file>Result1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 27,
+        "baseFolder": "Result-Stage_2"
+      }
+    ],
+    "aster": "stable",
+    "versionMajor": 14,
+    "versionMinor": 4
+  },
+  "minor": 10
+}
