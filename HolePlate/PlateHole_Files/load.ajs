@@ -16,9 +16,97 @@
         "baseFolder": "RunCase_2"
       },
       {
+        "name": "RunCase_3",
+        "stages": [
+          3,
+          4
+        ],
+        "baseFolder": "RunCase_3"
+      },
+      {
+        "name": "RunCase_4",
+        "stages": [
+          5,
+          6
+        ],
+        "baseFolder": "RunCase_4"
+      },
+      {
+        "name": "RunCase_5",
+        "stages": [
+          7
+        ],
+        "baseFolder": "RunCase_5"
+      },
+      {
+        "name": "RunCase_6",
+        "stages": [
+          8,
+          9
+        ],
+        "baseFolder": "RunCase_6"
+      },
+      {
+        "name": "RunCase_7",
+        "stages": [
+          10,
+          11
+        ],
+        "baseFolder": "RunCase_7"
+      },
+      {
+        "name": "RunCase_8",
+        "stages": [
+          12,
+          13
+        ],
+        "baseFolder": "RunCase_8"
+      },
+      {
+        "name": "RunCase_9",
+        "stages": [
+          14,
+          15
+        ],
+        "baseFolder": "RunCase_9"
+      },
+      {
+        "name": "RunCase_10",
+        "stages": [
+          16,
+          17
+        ],
+        "baseFolder": "RunCase_10"
+      },
+      {
+        "name": "RunCase_11",
+        "stages": [
+          18,
+          19
+        ],
+        "baseFolder": "RunCase_11"
+      },
+      {
+        "name": "RunCase_12",
+        "stages": [
+          20,
+          21
+        ],
+        "baseFolder": "RunCase_12"
+      },
+      {
+        "name": "RunCase_13",
+        "stages": [
+          22,
+          23
+        ],
+        "baseFolder": "RunCase_13"
+      },
+      {
         "name": "CurrentCase",
         "stages": [
-          2
+          22,
+          23
         ]
       }
     ],
@@ -88,8 +176,564 @@
           },
           "resstate": 16
         },
-        "uid": 2,
+        "uid": 2
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', )))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/home/ghostakr/Salome_Projects/Plate with hole inside/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 160
+        },
+        "uid": 3,
         "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "mode": "Interactive",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER"
+          },
+          "resstate": 32
+        },
+        "uid": 4
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', )))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/home/ghostakr/Salome_Projects/Plate with hole inside/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 160
+        },
+        "uid": 5,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 32
+        },
+        "uid": 6,
+        "baseFolder": "Result-Stage_2"
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', )))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/home/ghostakr/Salome_Projects/Plate with hole inside/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "0",
+            "mode": "Interactive",
+            "name": "RunCase_5_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:52:00 2019",
+            "endTime": "Sun Oct 20 16:52:10 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_5_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_5/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-165200.660</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_5/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_5/Result-Stage_1/RunCase_5_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_5/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_5/Result-Stage_1/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 7,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', )))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/home/ghostakr/Salome_Projects/Plate with hole inside/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 160
+        },
+        "uid": 8,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=_F(CHARGE=BC1), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 32
+        },
+        "uid": 9
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', )))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=80)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 80,
+            "filename": "/home/ghostakr/Salome_Projects/Plate with hole inside/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 10
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "1",
+            "mode": "Interactive",
+            "name": "RunCase_7_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:56:43 2019",
+            "endTime": "Sun Oct 20 16:56:53 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_7_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_7/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-165643.587</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_7/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_7/Result-Stage_2/RunCase_7_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_7/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_7/Result-Stage_2/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>PlateHoleResults1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 11
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', )))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=3)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 3,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 12
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "2",
+            "mode": "Interactive",
+            "name": "RunCase_8_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 16:58:25 2019",
+            "endTime": "Sun Oct 20 16:58:35 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_8_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_8/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-165825.226</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_8/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_8/Result-Stage_2/RunCase_8_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_8/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_8/Result-Stage_2/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>PlateHoleResults1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 13
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=3)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 3,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 160
+        },
+        "uid": 14
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "3",
+            "mode": "Interactive",
+            "name": "RunCase_9_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:00:59 2019",
+            "endTime": "Sun Oct 20 17:01:09 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_9_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_9/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-170059.772</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_9/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_9/Result-Stage_2/RunCase_9_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_9/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_9/Result-Stage_2/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>PlateHoleResults1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 32
+        },
+        "uid": 15
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', 'CD_Group')))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=3)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 3,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 16
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "4",
+            "mode": "Interactive",
+            "name": "RunCase_10_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:02:06 2019",
+            "endTime": "Sun Oct 20 17:02:16 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_10_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_10/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-170206.449</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_10/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_10/Result-Stage_2/RunCase_10_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_10/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_10/Result-Stage_2/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>PlateHoleResults1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 17
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=3)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 3,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 160
+        },
+        "uid": 18
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh1)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "5",
+            "mode": "Interactive",
+            "name": "RunCase_11_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:16:56 2019",
+            "endTime": "Sun Oct 20 17:17:06 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_11_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_11/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-171656.509</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_11/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_11/Result-Stage_2/RunCase_11_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_11/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_11/Result-Stage_2/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>PlateHoleResults1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 32
+        },
+        "uid": 19
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', 'CD_Group')))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=3)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 3,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 20
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh1)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "6",
+            "mode": "Interactive",
+            "name": "RunCase_12_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:17:31 2019",
+            "endTime": "Sun Oct 20 17:17:41 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_12_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_12/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-171731.698</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_12/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_12/Result-Stage_2/RunCase_12_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_12/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_12/Result-Stage_2/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>PlateHoleResults1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 21
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', 'CD_Group')))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=200000000000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=3)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 3,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 144
+        },
+        "uid": 22,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh1)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "7",
+            "mode": "Interactive",
+            "name": "RunCase_13_Stage_2",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 20 17:21:12 2019",
+            "endTime": "Sun Oct 20 17:21:22 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_13_Stage_2\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_13/Result-Stage_2/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-20-172112.682</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_13/Result-Stage_2</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_13/Result-Stage_2/RunCase_13_Stage_2.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_13/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_13/Result-Stage_2/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>PlateHoleResults1.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage2</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 23,
+        "baseFolder": "Result-Stage_2"
       }
     ],
     "aster": "stable",

@@ -103,10 +103,17 @@
         "baseFolder": "RunCase_13"
       },
       {
+        "name": "RunCase_14",
+        "stages": [
+          24
+        ],
+        "baseFolder": "RunCase_14"
+      },
+      {
         "name": "CurrentCase",
         "stages": [
-          22,
-          23
+          24,
+          25
         ]
       }
     ],
@@ -176,7 +183,8 @@
           },
           "resstate": 16
         },
-        "uid": 2
+        "uid": 2,
+        "baseFolder": "Result-Stage_1"
       },
       {
         "name": "Stage_1",
@@ -226,7 +234,8 @@
           },
           "resstate": 32
         },
-        "uid": 4
+        "uid": 4,
+        "baseFolder": "Result-Stage_2"
       },
       {
         "name": "Stage_1",
@@ -346,7 +355,8 @@
           "job": {},
           "resstate": 32
         },
-        "uid": 9
+        "uid": 9,
+        "baseFolder": "Result-Stage_2"
       },
       {
         "name": "Stage_1",
@@ -367,7 +377,8 @@
           "job": {},
           "resstate": 144
         },
-        "uid": 10
+        "uid": 10,
+        "baseFolder": "Result-Stage_1"
       },
       {
         "name": "Stage_2",
@@ -401,7 +412,8 @@
           },
           "resstate": 16
         },
-        "uid": 11
+        "uid": 11,
+        "baseFolder": "Result-Stage_2"
       },
       {
         "name": "Stage_1",
@@ -422,7 +434,8 @@
           "job": {},
           "resstate": 144
         },
-        "uid": 12
+        "uid": 12,
+        "baseFolder": "Result-Stage_1"
       },
       {
         "name": "Stage_2",
@@ -456,7 +469,8 @@
           },
           "resstate": 16
         },
-        "uid": 13
+        "uid": 13,
+        "baseFolder": "Result-Stage_2"
       },
       {
         "name": "Stage_1",
@@ -477,7 +491,8 @@
           "job": {},
           "resstate": 160
         },
-        "uid": 14
+        "uid": 14,
+        "baseFolder": "Result-Stage_1"
       },
       {
         "name": "Stage_2",
@@ -511,7 +526,8 @@
           },
           "resstate": 32
         },
-        "uid": 15
+        "uid": 15,
+        "baseFolder": "Result-Stage_2"
       },
       {
         "name": "Stage_1",
@@ -532,7 +548,8 @@
           "job": {},
           "resstate": 144
         },
-        "uid": 16
+        "uid": 16,
+        "baseFolder": "Result-Stage_1"
       },
       {
         "name": "Stage_2",
@@ -566,7 +583,8 @@
           },
           "resstate": 16
         },
-        "uid": 17
+        "uid": 17,
+        "baseFolder": "Result-Stage_2"
       },
       {
         "name": "Stage_1",
@@ -587,7 +605,8 @@
           "job": {},
           "resstate": 160
         },
-        "uid": 18
+        "uid": 18,
+        "baseFolder": "Result-Stage_1"
       },
       {
         "name": "Stage_2",
@@ -621,7 +640,8 @@
           },
           "resstate": 32
         },
-        "uid": 19
+        "uid": 19,
+        "baseFolder": "Result-Stage_2"
       },
       {
         "name": "Stage_1",
@@ -642,7 +662,8 @@
           "job": {},
           "resstate": 144
         },
-        "uid": 20
+        "uid": 20,
+        "baseFolder": "Result-Stage_1"
       },
       {
         "name": "Stage_2",
@@ -676,7 +697,8 @@
           },
           "resstate": 16
         },
-        "uid": 21
+        "uid": 21,
+        "baseFolder": "Result-Stage_2"
       },
       {
         "name": "Stage_1",
@@ -697,8 +719,7 @@
           "job": {},
           "resstate": 144
         },
-        "uid": 22,
-        "baseFolder": "Result-Stage_1"
+        "uid": 22
       },
       {
         "name": "Stage_2",
@@ -732,8 +753,63 @@
           },
           "resstate": 16
         },
-        "uid": 23,
-        "baseFolder": "Result-Stage_2"
+        "uid": 23
+      },
+      {
+        "name": "Stage_1",
+        "text": "mesh = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmesh = MODI_MAILLAGE(reuse=mesh, MAILLAGE=mesh, ORIE_PEAU_2D=_F(GROUP_MA=('BC_Group', 'CD_Group')))\n\nmodel = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh)\n\nSteel = DEFI_MATERIAU(ELAS=_F(E=200000000000.0, NU=0.3))\n\nfieldmat = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nfunc = DEFI_FONCTION(INTERPOL=('LIN', ), NOM_PARA='INST', PROL_DROITE='LINEAIRE', PROL_GAUCHE='LINEAIRE', VALE=(0.0, 0.0, 50.0, 50.0, 75.0, 0.0, 100.0, 100.0))\n\nPlateBC = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nPlateLD = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('CD_Group', ), PRES=-1000.0))\n\nResult = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=PlateBC), _F(CHARGE=PlateLD, FONC_MULT=func)), MODELE=model)\n\nResult = CALC_CHAMP(reuse=Result, CONTRAINTE=('SIGM_ELNO', 'SIGM_ELGA'), CRITERES=('SIEQ_ELNO', ), DEFORMATION=('EPSI_ELNO', ), RESULTAT=Result)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result), UNITE=3)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 3,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {
+            "jobid": "7",
+            "mode": "Interactive",
+            "name": "RunCase_14_Stage_1",
+            "server": "localhost",
+            "memory": 2048,
+            "time": "00:15:00",
+            "version": "stable",
+            "startTime": "Sun Oct 27 19:19:39 2019",
+            "endTime": "Sun Oct 27 19:19:49 2019",
+            "folder": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files",
+            "wckey": "P10WB:ASTER",
+            "dumpString": "<?xml version=\"1.0\"?>\n<!--SALOME Launcher job-->\n<jobs>\n  <job type=\"command_salome\" name=\"RunCase_14_Stage_1\">\n    <user_part>\n      <job_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_14/Result-Stage_1/launcher_script</job_file>\n      <work_directory>/tmp/asterstudy_workdir_root/root-GAKubuntuDesktop-Sun-27-191939.746</work_directory>\n      <result_directory>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_14/Result-Stage_1</result_directory>\n      <files>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_14/Result-Stage_1/RunCase_14_Stage_1.comm</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_14/Result-Stage_1/_ExportedFromSalomeObject_0_1_2_6.med</in_file>\n        <in_file>/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHole_Files/RunCase_14/Result-Stage_1/export</in_file>\n        <out_file>PlateHoleResults.rmed</out_file>\n        <out_file>message</out_file>\n        <out_file>base-stage1</out_file>\n      </files>\n      <resource_params>\n        <name>localhost</name>\n        <nb_proc>1</nb_proc>\n        <nb_node>1</nb_node>\n      </resource_params>\n      <maximum_duration>00:15:00</maximum_duration>\n      <wckey>P10WB:ASTER</wckey>\n    </user_part>\n    <run_part>\n      <job_state>FINISHED</job_state>\n      <job_reference>0</job_reference>\n    </run_part>\n  </job>\n</jobs>\n"
+          },
+          "resstate": 16
+        },
+        "uid": 24,
+        "baseFolder": "Result-Stage_1"
+      },
+      {
+        "name": "Stage_2",
+        "text": "mesh1 = LIRE_MAILLAGE(FORMAT='MED', UNITE=20)\n\nmodel1 = AFFE_MODELE(AFFE=_F(MODELISATION=('C_PLAN', ), PHENOMENE='MECANIQUE', TOUT='OUI'), MAILLAGE=mesh1)\n\nSteel1 = DEFI_MATERIAU(ELAS=_F(E=20000.0, NU=0.3))\n\nfieldma1 = AFFE_MATERIAU(AFFE=_F(MATER=(Steel, ), TOUT='OUI'), MODELE=model)\n\nBC1 = AFFE_CHAR_MECA(DDL_IMPO=_F(DX=0.0, DY=0.0, GROUP_MA=('AB_Group', )), MODELE=model)\n\nLD1 = AFFE_CHAR_MECA(MODELE=model, PRES_REP=_F(GROUP_MA=('BC_Group', ), PRES=0.0))\n\nResult1 = MECA_STATIQUE(CHAM_MATER=fieldmat, EXCIT=(_F(CHARGE=BC1), _F(CHARGE=LD1)), MODELE=model)\n\nIMPR_RESU(FORMAT='MED', RESU=_F(RESULTAT=Result1), UNITE=2)",
+        "files": [
+          {
+            "handle": 20,
+            "filename": "0:1:2:6",
+            "attr": 1
+          },
+          {
+            "handle": 2,
+            "filename": "/media/ghostakr/Data_1/Docs/Salome_Projects/2DElasticityProblem/HolePlate/PlateHoleResults1.rmed",
+            "attr": 2
+          }
+        ],
+        "result": {
+          "job": {},
+          "resstate": 1
+        },
+        "uid": 25
       }
     ],
     "aster": "stable",
