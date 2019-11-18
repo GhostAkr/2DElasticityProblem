@@ -1,0 +1,1268 @@
+
+--------------------------------------------------------------------------------
+ Code_Aster execution
+
+<INFO> prepare environment in /tmp/root-GAKubuntuLaptop-interactif_9512-0004-GAKubuntuLaptop
+
+--------------------------------------------------------------------------------
+ Copying datas
+
+copying .../root-GAKubuntuLaptop-Mon-18-161248.078/SmallEt_MainStage.comm...
+                                                                        [  OK  ]
+copying .../root-GAKubuntuLaptop-Mon-18-161248.078/_ExportedFromSalomeObject_0_1_4_3.med...
+                                                                        [  OK  ]
+<INFO> Parameters : memory 2048 MB - time limit 900 s
+
+--------------------------------------------------------------------------------
+ Content of /tmp/root-GAKubuntuLaptop-interactif_9512-0004-GAKubuntuLaptop before execution
+
+total 52
+drwx------  3 root root  4096 Nov 18 16:12 .
+drwxrwxrwt 39 root root 12288 Nov 18 16:12 ..
+-rw-r--r--  1 root root   891 Nov 18 16:12 9512-0004-GAKubuntuLaptop.export
+drwxr-xr-x  2 root root  4096 Nov 18 16:12 REPE_OUT
+-rw-r--r--  1 root root  3521 Nov 18 16:12 config.txt
+-rw-r--r--  1 root root  2904 Nov 18 16:12 fort.1.1
+-rw-r--r--  1 root root 19887 Nov 18 16:12 fort.20
+
+
+--------------------------------------------------------------------------------
+ Code_Aster run
+
+<INFO> Command line 1 :
+<INFO> /opt/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/bin/aster /opt/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/lib/aster/Execution/E_SUPERV.py -commandes fort.1 --num_job=9512-0004-GAKubuntuLaptop --mode=interactif --rep_outils=/opt/salome_meca/V2019_univ/tools/Code_aster_frontend-20190/outils --rep_mat=/opt/salome_meca/V2019_univ/tools/Code_aster_frontend-20190/../Code_aster_stable-v144_smeca/share/aster/materiau --rep_dex=/opt/salome_meca/V2019_univ/tools/Code_aster_frontend-20190/../Code_aster_stable-v144_smeca/share/aster/datg --numthreads=1 --suivi_batch --tpmax=900.0 --memjeveux=256.0
+# ------------------------------------------------------------------------------------------
+# Impression du contenu du fichier de commandes à exécuter :
+# ------------------------------------------------------------------------------------------
+DEBUT(LANG='EN')
+
+
+mesh = LIRE_MAILLAGE(identifier='0:1',
+                     FORMAT='MED',
+                     UNITE=20)
+
+mesh = MODI_MAILLAGE(identifier='1:1',
+                     reuse=mesh,
+                     MAILLAGE=mesh,
+                     ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', )))
+
+model0 = AFFE_MODELE(identifier='2:1',
+                     AFFE=_F(MODELISATION=('D_PLAN', ),
+                             PHENOMENE='MECANIQUE',
+                             TOUT='OUI'),
+                     MAILLAGE=mesh)
+
+SteelPl = DEFI_MATERIAU(identifier='3:1',
+                        ECRO_LINE=_F(D_SIGM_EPSI=1000000000.0,
+                                     SY=355000000.0),
+                        ELAS=_F(E=200000000000.0,
+                                NU=0.25))
+
+fieldmat = AFFE_MATERIAU(identifier='4:1',
+                         AFFE=_F(MATER=(SteelPl, ),
+                                 TOUT='OUI'),
+                         MODELE=model0)
+
+listr = DEFI_LIST_REEL(identifier='5:1',
+                       DEBUT=0.0,
+                       INTERVALLE=_F(JUSQU_A=100.0,
+                                     PAS=1.0))
+
+func1 = DEFI_FONCTION(identifier='6:1',
+                      INTERPOL=('LIN', ),
+                      NOM_PARA='INST',
+                      PROL_DROITE='LINEAIRE',
+                      PROL_GAUCHE='LINEAIRE',
+                      VALE=(0.0, 0.0, 50.0, 50.0, 75.0, 0.0, 100.0, 100.0, 125.0, 0.0))
+
+BC = AFFE_CHAR_MECA(identifier='7:1',
+                    DDL_IMPO=_F(DX=0.0,
+                                DY=0.0,
+                                GROUP_MA=('AB_Group', )),
+                    MODELE=model0)
+
+LD = AFFE_CHAR_MECA(identifier='8:1',
+                    MODELE=model0,
+                    PRES_REP=_F(GROUP_MA=('CD_Group', ),
+                                PRES=-800000000.0))
+
+Result = STAT_NON_LINE(identifier='9:1',
+                       CHAM_MATER=fieldmat,
+                       COMPORTEMENT=_F(RELATION='VMIS_ISOT_LINE',
+                                       TOUT='OUI'),
+                       CONVERGENCE=_F(ITER_GLOB_ELAS=500,
+                                      ITER_GLOB_MAXI=500),
+                       EXCIT=(_F(CHARGE=BC),
+                              _F(CHARGE=LD,
+                                 FONC_MULT=func1)),
+                       INCREMENT=_F(LIST_INST=listr),
+                       METHODE='NEWTON',
+                       MODELE=model0,
+                       NEWTON=_F(MATRICE='TANGENTE'))
+
+Resu = CALC_CHAMP(identifier='10:1',
+                  CHAM_UTIL=_F(CRITERE='VMIS',
+                               NOM_CHAM='SIGM_NOEU',
+                               NUME_CHAM_RESU=2),
+                  CONTRAINTE=('SIGM_NOEU', ),
+                  CRITERES=('SIEQ_NOEU', ),
+                  RESULTAT=Result)
+
+IMPR_RESU(identifier='11:1',
+          FORMAT='MED',
+          RESU=_F(RESULTAT=Resu),
+          UNITE=80)
+
+FIN()
+# ------------------------------------------------------------------------------------------
+
+  Ouverture en écriture du fichier ./vola.1
+
+ <INFO> Démarrage de l'exécution.
+                                                                                
+                                                                                
+              -- CODE_ASTER -- VERSION:  EXPLOITATION (stable) --               
+                                                                                
+                       Modified 14.4.0 version 21/08/2019                       
+                the revision 2708712c2a40 - branch  v14.4_smeca                 
+                        Copyright EDF R & D 1991 - 2019                         
+                                                                                
+                    Exécution of:  Mon Nov 18 16:12:59 2019                     
+                     Name of the machine:  GAKubuntuLaptop                      
+                               Structure:  64bit                                
+                               CPU type:  x86_64                                
+    Operating system:  Linux-5.0.0-32-generic-x86_64-with-debian-buster-sid     
+                     Language of the messages:  en (UTF-8)                      
+                                                                                
+                             Python version: 3.6.5                              
+                             NumPy version: 1.15.1                              
+                             Parallelism MPI: idle                              
+                           OpenMP parallelism: Nombre                           
+                          credit of processes used:  1                          
+                      Version of the HDF5 library : 1.10.3                      
+                       Version of the MED library : 4.0.0                       
+                     Version de la librairie MFront : 3.2.1                     
+                          MUMPS library version: 5.1.2                          
+                          PETSc library: not available                          
+                     Version of the SCOTCH library : 6.0.4                      
+
+                  Mémoire limite pour l'exécution : 2048.00 Mo                  
+                   consommée par l'initialisation : 408.61 Mo                   
+                  par les objets du jeu de commandes : 3.19 Mo                  
+                 reste pour l'allocation dynamique : 1636.21 Mo                 
+                   Cut limiting files of exchange:  48.00 Go                    
+                                                                                
+
+.. __stg1_txt1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0001 Concept of the type:  -
+  # ------------------------------------------------------------------------------------------
+  DEBUT(LANG='EN',
+        PAR_LOT='OUI',
+        IMPR_MACRO='NON',
+        DEBUG=_F(JXVERI='NON',
+                 SDVERI='NON',
+                 JEVEUX='NON',
+                 HIST_ETAPE='NON',),
+        MESURE_TEMPS=_F(NIVE_DETAIL=1,
+                        MOYENNE='NON',),
+        MEMOIRE=_F(TAILLE_BLOC=800.0,
+                   TAILLE_GROUP_ELEM=1000,),
+        RESERVE_CPU=_F(BORNE=900,),
+        INFO=1,)
+
+   
+   !-------------------------------------------------!
+   ! <I> <SUPERVIS_41>                               !
+   !                                                 !
+   ! The version 14.4.0 was modified by 1 revisions. !
+   !-------------------------------------------------!
+   
+
+ Initial value of maximum time CPU = 900 second
+ Valeur of the maximum time CPU placed to the orders = 810 second
+ Réserve CPU envisaged = 90 seconds 
+
+  Ouverture en écriture du fichier ./glob.1
+
+  Ouverture en écriture du fichier ./vola.1
+
+  Ouverture en lecture du fichier /opt/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/lib/aster/elem.1
+
+     Nom de la base                          :  ELEMBASE
+     Créée avec la version                   :  14.04.00
+     Nombre d'enregistrements utilisés       :  43
+     Nombre d'enregistrements maximum        :  512
+     Longueur d'enregistrement (octets)      :  819200
+     Nombre d'identificateurs utilisés       :  123
+     Taille maximum du répertoire            :  300
+     Pourcentage d'utilisation du répertoire :  41 %
+
+  Ouverture en lecture du fichier /opt/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/lib/aster/elem.1
+
+
+     Nom de la base                          :  ELEMBASE
+     Nombre d'enregistrements utilisés       :  43
+     Nombre d'enregistrements maximum        :  512
+     Longueur d'enregistrement (octets)      :  819200
+     Nombre total d'accès en lecture         :  60
+     Volume des accès en lecture             :         46.88 Mo.
+     Nombre total d'accès en écriture        :  0
+     Volume des accès en écriture            :          0.00 Mo.
+     Nombre d'identificateurs utilisés       :  123
+     Taille maximum du répertoire            :  300
+     Pourcentage d'utilisation du répertoire :  41 %
+
+ Second reading of the catalogues of the elements made. 
+
+ End of reading (lasted 0.797367 S.)   
+  # Memory (Mo):    456.59 /    448.76 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0001 user+syst:          0.19S (syst:          0.10S, Elaps:          0.87S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd0:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0002 Concept of the type:  maillage_sdaster
+  # ------------------------------------------------------------------------------------------
+  mesh = LIRE_MAILLAGE(FORMAT='MED',
+                       UNITE=20,
+                       INFO_MED=1,
+                       VERI_MAIL=_F(VERIF='OUI',
+                                    APLAT=1.E-3,),
+                       INFO=1,)
+
+Vérification du maillage.
+
+------------ MAILLAGE mesh     - IMPRESSIONS NIVEAU  1 ------------
+
+LU-18-NOVE-2019 16:13:00                                                        
+
+NOMBRE DE NOEUDS                         150
+
+NOMBRE DE MAILLES                        175
+                              SEG2                   50
+                              QUAD4                 125
+
+NOMBRE DE GROUPES DE MAILLES               5
+                              BC_Group                             6
+                              CD_Group                             6
+                              DA_Group                             6
+                              AB_Group                             7
+                              Hole_Group                          25
+
+--------------------------------------------------------------------------------
+
+  # Memory (Mo):    456.59 /    449.78 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0002 user+syst:          0.05S (syst:          0.00S, Elaps:          0.18S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd1:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0004 Concept of the type:  maillage_sdaster
+  # ------------------------------------------------------------------------------------------
+  mesh = MODI_MAILLAGE(reuse=mesh,
+                       MAILLAGE=mesh,
+                       ORIE_PEAU_2D=_F(GROUP_MA=('CD_Group', ),),
+                       INFO=1,)
+
+TRAITEMENT DU GROUP_MA: CD_Group                 DE       6 MAILLES
+                              6 MAILLE(S) ONT ETE ORIENTEE(S)
+AU TOTAL       6 MAILLE(S) ORIENTEE(S) 
+  # Memory (Mo):    456.59 /    449.78 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0004 user+syst:          0.00S (syst:          0.00S, Elaps:          0.04S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd2:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0005 Concept of the type:  modele_sdaster
+  # ------------------------------------------------------------------------------------------
+  model0 = AFFE_MODELE(MAILLAGE=mesh,
+                       AFFE=_F(TOUT='OUI',
+                               PHENOMENE='MECANIQUE',
+                               MODELISATION=('D_PLAN', ),),
+                       INFO=1,
+                       DISTRIBUTION=_F(PARTITIONNEUR='METIS',
+                                       METHODE='SOUS_DOMAINE',),
+                       VERI_JACOBIEN='OUI',)
+
+
+Sur les 175 mailles du maillage mesh, on a demandé l'affectation de 175, on a pu en affecter 175
+ Modélisation     Type maille  Élément fini     Nombre
+ D_PLAN           QUAD4        MEDPQU4          125
+                  SEG2         MEPLSE2          50
+#2      Calculs elementaires et assemblages               CPU (USER+SYST/SYST/ELAPS):      0.00      0.00      0.01
+  # Memory (Mo):    482.58 /    482.58 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0005 user+syst:          0.04S (syst:          0.01S, Elaps:          0.11S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd3:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0006 Concept of the type:  mater_sdaster
+  # ------------------------------------------------------------------------------------------
+  SteelPl = DEFI_MATERIAU(ELAS=_F(E=2.E11,
+                                  NU=0.25,
+                                  COEF_AMOR=1.0,),
+                          ECRO_LINE=_F(D_SIGM_EPSI=1.E9,
+                                       SY=3.55000000E8,),
+                          INFO=1,)
+
+Propriétés définies dans le matériau: ELAS.
+Propriétés définies dans le matériau: ECRO_LINE.
+  # Memory (Mo):    482.58 /    482.58 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0006 user+syst:          0.02S (syst:          0.00S, Elaps:          0.04S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd4:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0007 Concept of the type:  cham_mater
+  # ------------------------------------------------------------------------------------------
+  fieldmat = AFFE_MATERIAU(MODELE=model0,
+                           AFFE=_F(TOUT='OUI',
+                                   MATER=(SteelPl, ),),
+                           INFO=1,)
+
+  # Memory (Mo):    482.58 /    482.58 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0007 user+syst:          0.02S (syst:          0.00S, Elaps:          0.02S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd5:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0008 Concept of the type:  listr8_sdaster
+  # ------------------------------------------------------------------------------------------
+  listr = DEFI_LIST_REEL(DEBUT=0.0,
+                         INTERVALLE=_F(JUSQU_A=100.0,
+                                       PAS=1.0,),
+                         INFO=1,)
+
+  # Memory (Mo):    482.58 /    482.58 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0008 user+syst:          0.00S (syst:          0.00S, Elaps:          0.00S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd6:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0009 Concept of the type:  fonction_sdaster
+  # ------------------------------------------------------------------------------------------
+  func1 = DEFI_FONCTION(NOM_PARA='INST',
+                        VALE=(0.0, 0.0, 50.0, 50.0, 75.0, 0.0, 100.0, 100.0, 125.0, 0.0),
+                        INTERPOL=('LIN', ),
+                        PROL_DROITE='LINEAIRE',
+                        PROL_GAUCHE='LINEAIRE',
+                        NOM_RESU='TOUTRESU',
+                        VERIF='CROISSANT',
+                        INFO=1,)
+
+  # Memory (Mo):    482.58 /    482.58 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0009 user+syst:          0.00S (syst:          0.00S, Elaps:          0.01S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd7:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0010 Concept of the type:  char_meca
+  # ------------------------------------------------------------------------------------------
+  BC = AFFE_CHAR_MECA(MODELE=model0,
+                      DDL_IMPO=_F(GROUP_MA=('AB_Group', ),
+                                  DX=0.0,
+                                  DY=0.0,),
+                      VERI_NORM='OUI',
+                      DOUBLE_LAGRANGE='OUI',
+                      INFO=1,)
+
+  # Memory (Mo):    482.74 /    482.58 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0010 user+syst:          0.02S (syst:          0.00S, Elaps:          0.03S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd8:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0011 Concept of the type:  char_meca
+  # ------------------------------------------------------------------------------------------
+  LD = AFFE_CHAR_MECA(MODELE=model0,
+                      PRES_REP=_F(GROUP_MA=('CD_Group', ),
+                                  PRES=-8.E8,),
+                      VERI_NORM='OUI',
+                      DOUBLE_LAGRANGE='OUI',
+                      INFO=1,)
+
+  # Memory (Mo):    482.74 /    482.58 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0011 user+syst:          0.01S (syst:          0.00S, Elaps:          0.01S)
+  # ------------------------------------------------------------------------------------------
+
+.. __stg1_cmd9:1
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0012 Concept of the type:  evol_noli
+  # ------------------------------------------------------------------------------------------
+  Result = STAT_NON_LINE(MODELE=model0,
+                         CHAM_MATER=fieldmat,
+                         METHODE='NEWTON',
+                         EXCIT=(_F(CHARGE=BC,
+                                   TYPE_CHARGE='FIXE_CSTE',),
+                                _F(CHARGE=LD,
+                                   FONC_MULT=func1,
+                                   TYPE_CHARGE='FIXE_CSTE',),
+                                ),
+                         COMPORTEMENT=_F(TOUT='OUI',
+                                         RELATION='VMIS_ISOT_LINE',
+                                         RESI_CPLAN_RELA=1.E-06,
+                                         RESI_INTE_RELA=1.E-06,
+                                         ITER_INTE_MAXI=20,
+                                         ITER_INTE_PAS=0,
+                                         DEFORMATION='PETIT',
+                                         ITER_CPLAN_MAXI=1,
+                                         SYME_MATR_TANG='OUI',
+                                         PARM_THETA=1.0,),
+                         INCREMENT=_F(LIST_INST=listr,
+                                      PRECISION=1.E-06,),
+                         CONVERGENCE=_F(ITER_GLOB_MAXI=500,
+                                        ITER_GLOB_ELAS=500,
+                                        ARRET='OUI',),
+                         NEWTON=_F(MATRICE='TANGENTE',
+                                   REAC_INCR=1,
+                                   REAC_ITER=1,
+                                   REAC_ITER_ELAS=0,
+                                   MATR_RIGI_SYME='NON',),
+                         SOLVEUR=_F(RENUM='AUTO',
+                                    NPREC=8,
+                                    ELIM_LAGR='LAGR2',
+                                    STOP_SINGULIER='OUI',
+                                    TYPE_RESOL='AUTO',
+                                    ACCELERATION='AUTO',
+                                    LOW_RANK_SEUIL=0.0,
+                                    PRETRAITEMENTS='AUTO',
+                                    POSTTRAITEMENTS='AUTO',
+                                    PCENT_PIVOT=20,
+                                    RESI_RELA=-1.0,
+                                    GESTION_MEMOIRE='AUTO',
+                                    FILTRAGE_MATRICE=-1.0,
+                                    MIXER_PRECISION='NON',
+                                    MATR_DISTRIBUEE='NON',
+                                    METHODE='MUMPS',),
+                         MESURE=_F(TABLE='NON',),
+                         ARCHIVAGE=_F(PRECISION=1.E-06,
+                                      CRITERE='RELATIF',),
+                         )
+
+   Liste des comportements
+   Affecté sur 175 éléments
+     Relation                             : VMIS_ISOT_LINE
+     Déformation                          : PETIT
+     Nombre total de variables internes   : 2
+            V1 : EPSPEQ
+            V2 : INDIPLAS
+  Le système linéaire à résoudre a 332 degrés de liberté:
+   - 300 sont des degrés de liberté physiques
+     (ils sont portés par 150 noeuds du maillage)
+   - 32 sont les couples de paramètres de Lagrange associés
+     aux 16 relations linéaires dualisées.
+  La matrice est de taille 332 équations.
+  Elle contient 2662 termes non nuls si elle est symétrique et 4992 termes non nuls si elle n'est pas symétrique.
+  Soit un taux de remplissage de   4.529 %.
+      Il n'y a pas d'état initial défini. On prend un état initial nul.
+      Le champ <DEPL> est initialisé a zéro
+      Le champ <SIEF_ELGA> est initialisé a zéro
+      Le champ <VARI_ELGA> est initialisé a zéro
+
+ Filing of the initial state
+
+ Filing of the fields 
+    Field stored  DEPL at time  0.000000000000e+00 for the sequence number  0
+    Field stored  SIEF_ELGA at time  0.000000000000e+00 for the sequence number  0
+    Field stored  VARI_ELGA at time  0.000000000000e+00 for the sequence number  0
+    Field stored  COMPORTEMENT at time  0.000000000000e+00 for the sequence number  0
+---------------------------------------------------------------------
+
+ Time of computation:   1.000000000000e+00 - Level of cutting:  1 
+---------------------------------------------------------------------
+|     NEWTON     |     RESIDU     |     RESIDU     |     OPTION     |
+|    ITERATION   |     RELATIF    |     ABSOLU     |   ASSEMBLAGE   |
+|                | RESI_GLOB_RELA | RESI_GLOB_MAXI |                |
+---------------------------------------------------------------------
+|     0        X | 4.44680E-01  X | 9.71151E+07    |TANGENTE        |
+|     1        X | 8.79703E-01  X | 1.93334E+08    |TANGENTE        |
+|     2        X | 5.31193E-01  X | 1.06799E+08    |TANGENTE        |
+|     3        X | 2.50319E-01  X | 4.79707E+07    |TANGENTE        |
+|     4        X | 1.79060E-01  X | 3.43521E+07    |TANGENTE        |
+|     5        X | 1.42959E-01  X | 2.73291E+07    |TANGENTE        |
+|     6        X | 2.08455E-01  X | 4.02176E+07    |TANGENTE        |
+|     7        X | 1.64788E-01  X | 3.15185E+07    |TANGENTE        |
+|     8        X | 2.39059E-01  X | 4.64349E+07    |TANGENTE        |
+|     9        X | 1.94981E-01  X | 3.73137E+07    |TANGENTE        |
+|    10        X | 2.59670E-01  X | 5.05111E+07    |TANGENTE        |
+|    11        X | 2.10924E-01  X | 4.03786E+07    |TANGENTE        |
+|    12        X | 2.76250E-01  X | 5.37542E+07    |TANGENTE        |
+|    13        X | 2.23490E-01  X | 4.28010E+07    |TANGENTE        |
+|    14        X | 2.94486E-01  X | 5.73089E+07    |TANGENTE        |
+|    15        X | 2.49510E-01  X | 4.78243E+07    |TANGENTE        |
+|    16        X | 3.14272E-01  X | 6.11481E+07    |TANGENTE        |
+|    17        X | 3.20310E-01  X | 6.15189E+07    |TANGENTE        |
+|    18        X | 3.48982E-01  X | 6.78669E+07    |TANGENTE        |
+|    19        X | 3.64770E-01  X | 7.03016E+07    |TANGENTE        |
+|    20        X | 3.72839E-01  X | 7.26750E+07    |TANGENTE        |
+|    21        X | 3.68840E-01  X | 7.20973E+07    |TANGENTE        |
+|    22        X | 3.78767E-01  X | 7.34326E+07    |TANGENTE        |
+|    23        X | 3.75167E-01  X | 7.27981E+07    |TANGENTE        |
+|    24        X | 3.80342E-01  X | 7.31637E+07    |TANGENTE        |
+|    25        X | 3.77830E-01  X | 7.28381E+07    |TANGENTE        |
+|    26        X | 3.80068E-01  X | 7.32103E+07    |TANGENTE        |
+|    27        X | 3.82717E-01  X | 7.34157E+07    |TANGENTE        |
+|    28        X | 3.83588E-01  X | 7.36240E+07    |TANGENTE        |
+|    29        X | 3.83479E-01  X | 7.35728E+07    |TANGENTE        |
+|    30        X | 3.82437E-01  X | 7.36220E+07    |TANGENTE        |
+|    31        X | 3.82199E-01  X | 7.35590E+07    |TANGENTE        |
+|    32        X | 3.80993E-01  X | 7.34827E+07    |TANGENTE        |
+|    33        X | 3.81181E-01  X | 7.34148E+07    |TANGENTE        |
+|    34        X | 3.80316E-01  X | 7.33710E+07    |TANGENTE        |
+|    35        X | 3.80841E-01  X | 7.33579E+07    |TANGENTE        |
+|    36        X | 3.80174E-01  X | 7.33476E+07    |TANGENTE        |
+|    37        X | 3.80787E-01  X | 7.33490E+07    |TANGENTE        |
+|    38        X | 3.80150E-01  X | 7.33437E+07    |TANGENTE        |
+|    39        X | 3.80777E-01  X | 7.33474E+07    |TANGENTE        |
+|    40        X | 3.80146E-01  X | 7.33430E+07    |TANGENTE        |
+|    41        X | 3.80776E-01  X | 7.33471E+07    |TANGENTE        |
+|    42        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    43        X | 3.80775E-01  X | 7.33471E+07    |TANGENTE        |
+|    44        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    45        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    46        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    47        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    48        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    49        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    50        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    51        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    52        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    53        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    54        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    55        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    56        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    57        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    58        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    59        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    60        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    61        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    62        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    63        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    64        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    65        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    66        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    67        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    68        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    69        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    70        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    71        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    72        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    73        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    74        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    75        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    76        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    77        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    78        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    79        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    80        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    81        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    82        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    83        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    84        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    85        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    86        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    87        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    88        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    89        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    90        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    91        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    92        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    93        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    94        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    95        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    96        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    97        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|    98        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|    99        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   100        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   101        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   102        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   103        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   104        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   105        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   106        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   107        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   108        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   109        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   110        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   111        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   112        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   113        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   114        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   115        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   116        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   117        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   118        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   119        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   120        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   121        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   122        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   123        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   124        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   125        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   126        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   127        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   128        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   129        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   130        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   131        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   132        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   133        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   134        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   135        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   136        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   137        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   138        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   139        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   140        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   141        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   142        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   143        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   144        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   145        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   146        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   147        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   148        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   149        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   150        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   151        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   152        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   153        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   154        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   155        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   156        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   157        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   158        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   159        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   160        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   161        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   162        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   163        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   164        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   165        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   166        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   167        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   168        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   169        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   170        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   171        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   172        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   173        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   174        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   175        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   176        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   177        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   178        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   179        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   180        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   181        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   182        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   183        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   184        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   185        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   186        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   187        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   188        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   189        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   190        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   191        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   192        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   193        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   194        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   195        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   196        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   197        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   198        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   199        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   200        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   201        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   202        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   203        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   204        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   205        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   206        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   207        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   208        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   209        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   210        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   211        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   212        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   213        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   214        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   215        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   216        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   217        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   218        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   219        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   220        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   221        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   222        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   223        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   224        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   225        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   226        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   227        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   228        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   229        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   230        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   231        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   232        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   233        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   234        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   235        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   236        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   237        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   238        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   239        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   240        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   241        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   242        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   243        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   244        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   245        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   246        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   247        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   248        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   249        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   250        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   251        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   252        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   253        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   254        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   255        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   256        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   257        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   258        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   259        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   260        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   261        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   262        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   263        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   264        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   265        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   266        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   267        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   268        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   269        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   270        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   271        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   272        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   273        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   274        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   275        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   276        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   277        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   278        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   279        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   280        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   281        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   282        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   283        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   284        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   285        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   286        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   287        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   288        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   289        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   290        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   291        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   292        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   293        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   294        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   295        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   296        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   297        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   298        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   299        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   300        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   301        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   302        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   303        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   304        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   305        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   306        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   307        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   308        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   309        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   310        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   311        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   312        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   313        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   314        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   315        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   316        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   317        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   318        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   319        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   320        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   321        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   322        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   323        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   324        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   325        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   326        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   327        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   328        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   329        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   330        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   331        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   332        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   333        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   334        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   335        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   336        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   337        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   338        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   339        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   340        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   341        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   342        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   343        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   344        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   345        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   346        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   347        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   348        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   349        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   350        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   351        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   352        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   353        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   354        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   355        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   356        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   357        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   358        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   359        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   360        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   361        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   362        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   363        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   364        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   365        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   366        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   367        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   368        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   369        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   370        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   371        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   372        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   373        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   374        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   375        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   376        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   377        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   378        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   379        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   380        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   381        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   382        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   383        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   384        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   385        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   386        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   387        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   388        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   389        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   390        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   391        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   392        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   393        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   394        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   395        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   396        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   397        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   398        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   399        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   400        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   401        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   402        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   403        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   404        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   405        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   406        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   407        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   408        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   409        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   410        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   411        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   412        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   413        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   414        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   415        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   416        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   417        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   418        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   419        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   420        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   421        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   422        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   423        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   424        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   425        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   426        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   427        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   428        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   429        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   430        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   431        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   432        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   433        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   434        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   435        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   436        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   437        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   438        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   439        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   440        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   441        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   442        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   443        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   444        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   445        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   446        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   447        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   448        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   449        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   450        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   451        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   452        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   453        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   454        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   455        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   456        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   457        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   458        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   459        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   460        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   461        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   462        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   463        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   464        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   465        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   466        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   467        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   468        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   469        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   470        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   471        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   472        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   473        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   474        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   475        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   476        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   477        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   478        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   479        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   480        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   481        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   482        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   483        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   484        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   485        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   486        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   487        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   488        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   489        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   490        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   491        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   492        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   493        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   494        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   495        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   496        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   497        X | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+|   498        X | 3.80146E-01  X | 7.33429E+07    |TANGENTE        |
+|   499        E | 3.80775E-01  X | 7.33470E+07    |TANGENTE        |
+---------------------------------------------------------------------
+
+ <Erreur> the maximum number of iterations of Newton is reached 
+
+ <Action> One stops computation. 
+ 
+
+  Temps CPU consommé dans ce pas de temps    : 5.531 s
+    * Nombre d'itérations de Newton                     : 500
+    * Temps total intégration comportement              : 2.315 s (501 intégrations)
+    * Temps total factorisation matrice                 : 1.225 s (500 factorisations)
+    * Temps construction second membre                  : 0.800 s
+    * Temps total résolution K.U=F                      : 0.367 s (500 résolutions)
+    * Temps assemblage matrice                          : 0.000 s
+    * Temps autres opérations                           : 0.824 s
+
+ Memory (Mo):    492.86 /    490.53 /     44.30 /     34.34 (VmPeak / VmSize / Optimum / Minimum) 
+   
+   !---------------------------------------------------------------------------------------------------------------!
+   ! <NonConvergenceError> <MECANONLINE9_7>                                                                        !
+   !                                                                                                               !
+   !  Stop due to absence of convergence with the necessary iteration count in the nonlinear algorithm of Newton.  !
+   !  The total base is saved. It contains the pitches archived before the stop.                                   !
+   !                                                                                                               !
+   !  Advices:                                                                                                     !
+   !  - Increase ITER_GLOB_MAXI.                                                                                   !
+   !  - More often Reactualize the tangent matrix.                                                                 !
+   !  - Refine your temporal discretization.                                                                       !
+   !  - Try to activate event management (cutting of the time step for example) in command DEFI_LIST_INST.         !
+   !---------------------------------------------------------------------------------------------------------------!
+   
+
+ Validation of the concept  Result. 
+ <S> ERREUR UTILISATEUR RECUPEREE PAR LE SUPERVISEUR
+
+.. __stg1_txt80
+  # ------------------------------------------------------------------------------------------
+  # Commands No:  0013 Concept of the type:  -
+  # ------------------------------------------------------------------------------------------
+  FIN(FORMAT_HDF='NON',
+      RETASSAGE='NON',
+      INFO_RESU='OUI',
+      PROC0='OUI',
+      )
+
+   
+   !-----------------------------------------------------------------!
+   ! <I> <CATAMESS_89>                                               !
+   !                                                                 !
+   !  List of warnings emitted during the execution of computation.  !
+   !                                                                 !
+   !  Warnings which you chose to ignore of are preceded by (*).     !
+   !  Number of occurrences for each warning:                        !
+   !            no warning                                           !
+   !-----------------------------------------------------------------!
+   
+ ---------------------------------------------------------------------------
+ Concepts de la base: G
+    Nom       Type                 Taille (Mo)         Nombre      Nombre de
+                                                     d'objets       segments
+    TOTAL                                27.81            206            334
+  
+    mesh       MAILLAGE_SDASTER           0.02             34             52
+    model0     MODELE_SDASTER             0.01              8             13
+    SteelPl    MATER_SDASTER              0.00              8              8
+    fieldmat   CHAM_MATER                 0.00              6             11
+    listr      LISTR8_SDASTER             0.00              6              6
+    func1      FONCTION_SDASTER           0.00              4              4
+    BC         CHAR_MECA                  0.01             23             43
+    LD         CHAR_MECA                  0.00              8             13
+    Result     EVOL_NOLI                  0.47             64             78
+    &FOZERO                               0.00              2              2
+    &&_NUM_C                              0.00              1              1
+    &CATA.AC                              0.00              2              4
+    &CATA.CL                              0.60              1              3
+    &CATA.GD                              0.14              4             11
+    &CATA.ME                              0.20              2              4
+    &CATA.OP                              0.30              4             19
+    &CATA.PH                              0.00              1              1
+    &CATA.PR                              0.00              2              4
+    &CATA.TE                             26.03             17             42
+    &CATA.TH                              0.01              2              4
+    &CATA.TM                              0.01              7             11
+ ---------------------------------------------------------------------------
+
+
+     Nom de la base                          :  GLOBALE
+     Nombre d'enregistrements utilisés       :  47
+     Nombre d'enregistrements maximum        :  62914
+     Longueur d'enregistrement (octets)      :  819200
+     Nombre total d'accès en lecture         :  7
+     Volume des accès en lecture             :          5.47 Mo.
+     Nombre total d'accès en écriture        :  63
+     Volume des accès en écriture            :         49.22 Mo.
+     Nombre d'identificateurs utilisés       :  348
+     Taille maximum du répertoire            :  2000
+     Pourcentage d'utilisation du répertoire :  17 %
+
+
+     Nom de la base                          :  VOLATILE
+     Nombre d'enregistrements utilisés       :  17
+     Nombre d'enregistrements maximum        :  62914
+     Longueur d'enregistrement (octets)      :  819200
+     Nombre total d'accès en lecture         :  1
+     Volume des accès en lecture             :          0.78 Mo.
+     Nombre total d'accès en écriture        :  21
+     Volume des accès en écriture            :         16.41 Mo.
+     Nombre d'identificateurs utilisés       :  906
+     Taille maximum du répertoire            :  2000
+     Pourcentage d'utilisation du répertoire :  45 %
+
+ <FIN> Arrêt normal dans "FIN".
+ <I> <FIN> ARRET NORMAL DANS "FIN" PAR APPEL A "JEFINI".
+
+ The memory requested from launching is over-estimated, it is of 2048.00 Mo. 
+ The peak report used is of 492.86 Mo. 
+ 
+
+
+     Nom de la base                          :  ELEMBASE
+     Nombre d'enregistrements utilisés       :  43
+     Nombre d'enregistrements maximum        :  512
+     Longueur d'enregistrement (octets)      :  819200
+     Nombre total d'accès en lecture         :  60
+     Volume des accès en lecture             :         46.88 Mo.
+     Nombre total d'accès en écriture        :  0
+     Volume des accès en écriture            :          0.00 Mo.
+     Nombre d'identificateurs utilisés       :  123
+     Taille maximum du répertoire            :  300
+     Pourcentage d'utilisation du répertoire :  41 %
+  
+ <I> <FIN> MEMOIRE JEVEUX MINIMALE REQUISE POUR L'EXECUTION :                      34.34 Mo
+ <I> <FIN> MEMOIRE JEVEUX OPTIMALE REQUISE POUR L'EXECUTION :                      44.30 Mo
+ <I> <FIN> MAXIMUM DE MEMOIRE UTILISEE PAR LE PROCESSUS LORS DE L'EXECUTION :     492.86 Mo
+  
+ <I>       FERMETURE DES BASES EFFECTUEE
+  
+   STATISTIQUES CONCERNANT L'ALLOCATION DYNAMIQUE :
+     TAILLE CUMULEE MAXIMUM            :                   44  Mo.
+     TAILLE CUMULEE LIBEREE            :                   85  Mo.
+     NOMBRE TOTAL D'ALLOCATIONS        :               524710
+     NOMBRE TOTAL DE LIBERATIONS       :               524690
+     APPELS AU MECANISME DE LIBERATION :                    0
+     TAILLE MEMOIRE CUMULEE RECUPEREE  :                    0  Mo.
+     VOLUME DES LECTURES               :                    0  Mo.
+     VOLUME DES ECRITURES              :                   11  Mo.
+  
+   MEMOIRE JEVEUX MINIMALE REQUISE POUR L'EXECUTION :      34.34 Mo
+     - IMPOSE DE NOMBREUX ACCES DISQUE
+     - RALENTIT LA VITESSE D'EXECUTION
+   MEMOIRE JEVEUX OPTIMALE REQUISE POUR L'EXECUTION :      44.30 Mo
+     - LIMITE LES ACCES DISQUE
+     - AMELIORE LA VITESSE D'EXECUTION
+   MAXIMUM DE MEMOIRE UTILISEE PAR LE PROCESSUS     :     492.86 Mo
+     - COMPREND LA MEMOIRE CONSOMMEE PAR  JEVEUX, 
+       LE SUPERVISEUR PYTHON, LES LIBRAIRIES EXTERNES
+  
+ <I>       FIN D'EXECUTION LE : LU-18-NOVE-2019 16:13:07
+
+
+  <I> Informations sur les temps d'exécution
+      Temps cpu user total                    6.61 s
+      Temps cpu systeme total                 0.55 s
+      Temps elapsed total                    10.11 s
+      Temps restant                         799.89 s
+
+
+ The signup of the saved base is (with the address 0): 
+  270dd519b40e4bfbb28d1cf50cefbc98ed60c974 
+
+ ********************************************************************************
+ * COMMAND                  :       USER :     SYSTEM :   USER+SYS :    ELAPSED *
+ ********************************************************************************
+ * init (jdc)               :       1.24 :       0.12 :       1.36 :       2.64 *
+ *  . compile               :       0.01 :       0.00 :       0.01 :       0.01 *
+ *  . exec_compile          :       0.19 :       0.01 :       0.20 :       0.34 *
+ *  . report                :       0.01 :       0.00 :       0.01 :       0.00 *
+ *  . build                 :       0.00 :       0.00 :       0.00 :       0.00 *
+ * DEBUT                    :       0.09 :       0.10 :       0.19 :       0.87 *
+ * LIRE_MAILLAGE            :       0.05 :       0.00 :       0.05 :       0.18 *
+ * MODI_MAILLAGE            :       0.00 :       0.00 :       0.00 :       0.04 *
+ * AFFE_MODELE              :       0.03 :       0.01 :       0.04 :       0.11 *
+ * DEFI_MATERIAU            :       0.02 :       0.00 :       0.02 :       0.04 *
+ * AFFE_MATERIAU            :       0.02 :       0.00 :       0.02 :       0.02 *
+ * DEFI_LIST_REEL           :       0.00 :       0.00 :       0.00 :       0.00 *
+ * DEFI_FONCTION            :       0.00 :       0.00 :       0.00 :       0.01 *
+ * AFFE_CHAR_MECA           :       0.02 :       0.00 :       0.02 :       0.03 *
+ * AFFE_CHAR_MECA           :       0.01 :       0.00 :       0.01 :       0.01 *
+ * STAT_NON_LINE            :       5.08 :       0.33 :       5.41 :       5.92 *
+ * FIN                      :       0.02 :       0.06 :       0.08 :       0.07 *
+ *  . part Superviseur      :       1.41 :       0.22 :       1.63 :       3.80 *
+ *  . part Fortran          :       5.21 :       0.34 :       5.55 :       6.32 *
+ ********************************************************************************
+ * TOTAL_JOB                :       6.61 :       0.55 :       7.16 :      10.11 *
+ ********************************************************************************
+
+JDC.py : ERREUR WITH THE EXECUTION - INTERRUPTION
+/opt/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/lib/aster/aster_settings.py:262: DeprecationWarning: this command line option is deprecated : --rep_outils
+  coreopts.parse_args(argv or sys.argv)
+>> JDC.py: DEBUT CR of execution of JDC in MIXTE
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   ! <S> Exception user raised but not interceptee.                                !
+   ! The bases are fermees.                                                        !
+   ! Type of the exception: NonConvergenceError                                    !
+   !                                                                               !
+   !  Stop due to absence of convergence with the necessary iteration count in the !
+   ! nonlinear algorithm of Newton.                                                !
+   !  The total base is saved. It contains the pitches archived before the stop.   !
+   !                                                                               !
+   !  Advices:                                                                     !
+   !  - Increase ITER_GLOB_MAXI.                                                   !
+   !  - More often Reactualize the tangent matrix.                                 !
+   !  - Refine your temporal discretization.                                       !
+   !  - Try to activate event management (cutting of the time step for example) in !
+   ! command DEFI_LIST_INST.                                                       !
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+fine CR of execution of JDC in MIXTE
+
+ REPORT
+ >> JDC.py: FIN REPORT
+EXECUTION_CODE_ASTER_EXIT_9512-0004-GAKubuntuLaptop=1
+<INFO> Code_Aster run ended, diagnostic : <S>_NO_CONVERGENCE
+
+--------------------------------------------------------------------------------
+ Content of /tmp/root-GAKubuntuLaptop-interactif_9512-0004-GAKubuntuLaptop after execution
+
+.:
+total 55040
+drwx------  3 root root     4096 Nov 18 16:13 .
+drwxrwxrwt 39 root root    12288 Nov 18 16:13 ..
+-rw-r--r--  1 root root      891 Nov 18 16:12 9512-0004-GAKubuntuLaptop.export
+drwxr-xr-x  2 root root     4096 Nov 18 16:12 REPE_OUT
+-rw-r--r--  1 root root     3521 Nov 18 16:12 config.txt
+-rw-r--r--  1 root root     2904 Nov 18 16:12 fort.1
+-rw-r--r--  1 root root     2904 Nov 18 16:12 fort.1.1
+-rw-r--r--  1 root root        0 Nov 18 16:12 fort.15
+-rw-r--r--  1 root root    19887 Nov 18 16:12 fort.20
+-rw-r--r--  1 root root    70397 Nov 18 16:13 fort.6
+-rw-r--r--  1 root root        0 Nov 18 16:12 fort.8
+-rw-r--r--  1 root root        0 Nov 18 16:12 fort.9
+-rw-r--r--  1 root root 38502408 Nov 18 16:13 glob.1
+-rw-r--r--  1 root root       44 Nov 18 16:13 info_cpu
+-rw-r--r--  1 root root  4607483 Nov 18 16:13 pick.1
+-rw-r--r--  1 root root 13107208 Nov 18 16:13 vola.1
+
+REPE_OUT:
+total 8
+drwxr-xr-x 2 root root 4096 Nov 18 16:12 .
+drwx------ 3 root root 4096 Nov 18 16:13 ..
+
+
+--------------------------------------------------------------------------------
+ Size of bases
+
+<INFO> size of vola.1 :     13107208 bytes
+<INFO> size of glob.1 :     38502408 bytes
+<INFO> size of pick.1 :      4607483 bytes
+
+--------------------------------------------------------------------------------
+ Copying results
+
+
+<A>_COPYFILE       no such file or directory: fort.80
+
+copying .../fort.6...                                                   [  OK  ]
+copying .../glob.1...                                                   [  OK  ]
+copying .../pick.1...                                                   [  OK  ]
+
+<S>_NO_CONVERGENCE Code_Aster run ended
+
+
+ 
+ ---------------------------------------------------------------------------------
+                                            cpu     system    cpu+sys    elapsed
+ ---------------------------------------------------------------------------------
+   Preparation of environment              0.00       0.00       0.00       0.00
+   Copying datas                           0.05       0.03       0.08       0.11
+   Code_Aster run                          8.34       0.90       9.24      13.36
+   Copying results                         0.02       0.08       0.10       0.13
+ ---------------------------------------------------------------------------------
+   Total                                   8.67       1.16       9.83      14.22
+ ---------------------------------------------------------------------------------
+
+as_run 2018.1
+
+------------------------------------------------------------
+--- DIAGNOSTIC JOB : <S>_NO_CONVERGENCE
+------------------------------------------------------------
+
+
+EXIT_CODE=4
