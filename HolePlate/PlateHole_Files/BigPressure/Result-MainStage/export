@@ -9,7 +9,7 @@ P ncpus 0
 P nomjob BigPressure_MainStage
 P origine AsterStudy 0.11
 P server localhost
-P studyid 7622-0007-GAKubuntuDesktop
+P studyid 7111-0004-GAKubuntuDesktop
 P time_limit 900.0
 P tpsjob 16
 P version stable

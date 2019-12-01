@@ -44,7 +44,7 @@ PlateBC = AFFE_CHAR_MECA(identifier='6:1',
 PlateLD = AFFE_CHAR_MECA(identifier='7:1',
                          MODELE=model,
                          PRES_REP=_F(GROUP_MA=('CD_Group', ),
-                                     PRES=-1e+26))
+                                     PRES=-800000000.0))
 
 Result = MECA_STATIQUE(identifier='8:1',
                        CHAM_MATER=fieldmat,
@@ -54,6 +54,10 @@ Result = MECA_STATIQUE(identifier='8:1',
 
 Result = CALC_CHAMP(identifier='9:1',
                     reuse=Result,
+                    CHAM_UTIL=_F(CRITERE='VMIS',
+                                 NOM_CHAM='SIGM_NOEU',
+                                 NUME_CHAM_RESU=2),
+                    CONTRAINTE=('SIGM_NOEU', ),
                     CRITERES=('SIEQ_NOEU', ),
                     RESULTAT=Result)
 
@@ -76,7 +80,7 @@ FIN()
                 the revision 2708712c2a40 - branch  v14.4_smeca                 
                         Copyright EDF R & D 1991 - 2019                         
                                                                                 
-                    Exécution of:  Sun Nov 17 13:26:41 2019                     
+                    Exécution of:  Sun Nov 24 16:48:21 2019                     
                      Name of the machine:  GAKubuntuDesktop                     
                                Structure:  64bit                                
                                CPU type:  x86_64                                
@@ -96,9 +100,9 @@ FIN()
                      Version of the SCOTCH library : 6.0.4                      
 
                   Mémoire limite pour l'exécution : 2048.00 Mo                  
-                   consommée par l'initialisation : 408.95 Mo                   
-                  par les objets du jeu de commandes : 3.09 Mo                  
-                 reste pour l'allocation dynamique : 1635.84 Mo                 
+                   consommée par l'initialisation : 408.63 Mo                   
+                  par les objets du jeu de commandes : 3.11 Mo                  
+                 reste pour l'allocation dynamique : 1636.14 Mo                 
                    Cut limiting files of exchange:  48.00 Go                    
                                                                                 
 
@@ -136,7 +140,7 @@ FIN()
 
   Ouverture en écriture du fichier ./vola.1
 
-  Ouverture en lecture du fichier /home/ghostakr/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/lib/aster/elem.1
+  Ouverture en lecture du fichier /opt/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/lib/aster/elem.1
 
      Nom de la base                          :  ELEMBASE
      Créée avec la version                   :  14.04.00
@@ -147,7 +151,7 @@ FIN()
      Taille maximum du répertoire            :  300
      Pourcentage d'utilisation du répertoire :  41 %
 
-  Ouverture en lecture du fichier /home/ghostakr/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/lib/aster/elem.1
+  Ouverture en lecture du fichier /opt/salome_meca/V2019_univ/tools/Code_aster_stable-v144_smeca/lib/aster/elem.1
 
 
      Nom de la base                          :  ELEMBASE
@@ -164,9 +168,9 @@ FIN()
 
  Second reading of the catalogues of the elements made. 
 
- End of reading (lasted 0.043262 S.)   
-  # Memory (Mo):    456.84 /    449.02 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
-  # Fin orders No:  0001 user+syst:          0.06S (syst:          0.03S, Elaps:          0.07S)
+ End of reading (lasted 0.041689 S.)   
+  # Memory (Mo):    456.56 /    448.73 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0001 user+syst:          0.07S (syst:          0.06S, Elaps:          0.07S)
   # ------------------------------------------------------------------------------------------
 
 .. __stg1_cmd0:1
@@ -184,7 +188,7 @@ Vérification du maillage.
 
 ------------ MAILLAGE mesh     - IMPRESSIONS NIVEAU  1 ------------
 
-DI-17-NOVE-2019 13:26:41                                                        
+DI-24-NOVE-2019 16:48:21                                                        
 
 NOMBRE DE NOEUDS                         150
 
@@ -200,8 +204,8 @@ NOMBRE DE GROUPES DE MAILLES               4
 
 --------------------------------------------------------------------------------
 
-  # Memory (Mo):    456.84 /    450.07 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
-  # Fin orders No:  0002 user+syst:          0.01S (syst:          0.00S, Elaps:          0.01S)
+  # Memory (Mo):    456.56 /    449.79 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0002 user+syst:          0.00S (syst:          0.00S, Elaps:          0.01S)
   # ------------------------------------------------------------------------------------------
 
 .. __stg1_cmd1:1
@@ -218,8 +222,8 @@ TRAITEMENT DU GROUP_MA: BC_Group                 DE       6 MAILLES
 TRAITEMENT DU GROUP_MA: CD_Group                 DE       6 MAILLES
                               6 MAILLE(S) ONT ETE ORIENTEE(S)
 AU TOTAL      12 MAILLE(S) ORIENTEE(S) 
-  # Memory (Mo):    456.84 /    450.07 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
-  # Fin orders No:  0004 user+syst:          0.00S (syst:          0.00S, Elaps:          0.01S)
+  # Memory (Mo):    456.56 /    449.79 /     44.30 /     22.92 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0004 user+syst:          0.00S (syst:          0.00S, Elaps:          0.00S)
   # ------------------------------------------------------------------------------------------
 
 .. __stg1_cmd2:1
@@ -241,8 +245,8 @@ Sur les 175 mailles du maillage mesh, on a demandé l'affectation de 175, on a p
  C_PLAN           QUAD4        MECPQU4          125
                   SEG2         MEPLSE2          50
 #2      Calculs elementaires et assemblages               CPU (USER+SYST/SYST/ELAPS):      0.00      0.00      0.00
-  # Memory (Mo):    482.86 /    482.86 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
-  # Fin orders No:  0005 user+syst:          0.02S (syst:          0.01S, Elaps:          0.00S)
+  # Memory (Mo):    482.57 /    482.57 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0005 user+syst:          0.01S (syst:          0.00S, Elaps:          0.01S)
   # ------------------------------------------------------------------------------------------
 
 .. __stg1_cmd3:1
@@ -255,7 +259,7 @@ Sur les 175 mailles du maillage mesh, on a demandé l'affectation de 175, on a p
                         INFO=1,)
 
 Propriétés définies dans le matériau: ELAS.
-  # Memory (Mo):    482.86 /    482.86 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Memory (Mo):    482.57 /    482.57 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
   # Fin orders No:  0006 user+syst:          0.00S (syst:          0.00S, Elaps:          0.00S)
   # ------------------------------------------------------------------------------------------
 
@@ -268,7 +272,7 @@ Propriétés définies dans le matériau: ELAS.
                                    MATER=(Steel, ),),
                            INFO=1,)
 
-  # Memory (Mo):    482.86 /    482.86 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Memory (Mo):    482.57 /    482.57 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
   # Fin orders No:  0007 user+syst:          0.01S (syst:          0.00S, Elaps:          0.01S)
   # ------------------------------------------------------------------------------------------
 
@@ -285,8 +289,8 @@ Propriétés définies dans le matériau: ELAS.
                        VERIF='CROISSANT',
                        INFO=1,)
 
-  # Memory (Mo):    482.86 /    482.86 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
-  # Fin orders No:  0008 user+syst:          0.00S (syst:          0.00S, Elaps:          0.01S)
+  # Memory (Mo):    482.57 /    482.57 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0008 user+syst:          0.00S (syst:          0.00S, Elaps:          0.00S)
   # ------------------------------------------------------------------------------------------
 
 .. __stg1_cmd6:1
@@ -301,8 +305,8 @@ Propriétés définies dans le matériau: ELAS.
                            DOUBLE_LAGRANGE='OUI',
                            INFO=1,)
 
-  # Memory (Mo):    483.02 /    482.86 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
-  # Fin orders No:  0009 user+syst:          0.00S (syst:          0.00S, Elaps:          0.00S)
+  # Memory (Mo):    482.73 /    482.57 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0009 user+syst:          0.01S (syst:          0.00S, Elaps:          0.01S)
   # ------------------------------------------------------------------------------------------
 
 .. __stg1_cmd7:1
@@ -311,12 +315,12 @@ Propriétés définies dans le matériau: ELAS.
   # ------------------------------------------------------------------------------------------
   PlateLD = AFFE_CHAR_MECA(MODELE=model,
                            PRES_REP=_F(GROUP_MA=('CD_Group', ),
-                                       PRES=-1.E+26,),
+                                       PRES=-8.E8,),
                            VERI_NORM='OUI',
                            DOUBLE_LAGRANGE='OUI',
                            INFO=1,)
 
-  # Memory (Mo):    483.02 /    482.86 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Memory (Mo):    482.73 /    482.57 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
   # Fin orders No:  0010 user+syst:          0.00S (syst:          0.00S, Elaps:          0.00S)
   # ------------------------------------------------------------------------------------------
 
@@ -357,10 +361,10 @@ Propriétés définies dans le matériau: ELAS.
   Elle contient 2662 termes non nuls si elle est symétrique et 4992 termes non nuls si elle n'est pas symétrique.
   Soit un taux de remplissage de   4.529 %.
     Field stored  DEPL at time  0.000000000000e+00 for the sequence number  1
-#1      Resolution des systemes lineaires                 CPU (USER+SYST/SYST/ELAPS):      0.01      0.00      0.01
-#2      Calculs elementaires et assemblages               CPU (USER+SYST/SYST/ELAPS):      0.01      0.00      0.01
-  # Memory (Mo):    491.86 /    487.04 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
-  # Fin orders No:  0011 user+syst:          0.04S (syst:          0.00S, Elaps:          0.04S)
+#1      Resolution des systemes lineaires                 CPU (USER+SYST/SYST/ELAPS):      0.00      0.00      0.01
+#2      Calculs elementaires et assemblages               CPU (USER+SYST/SYST/ELAPS):      0.00      0.00      0.01
+  # Memory (Mo):    491.55 /    486.73 /     44.30 /     33.95 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0011 user+syst:          0.03S (syst:          0.00S, Elaps:          0.03S)
   # ------------------------------------------------------------------------------------------
 
 .. __stg1_cmd9:1
@@ -370,13 +374,17 @@ Propriétés définies dans le matériau: ELAS.
   Result = CALC_CHAMP(reuse=Result,
                       RESULTAT=Result,
                       PRECISION=1.E-06,
+                      CONTRAINTE=('SIGM_NOEU', ),
                       CRITERES=('SIEQ_NOEU', ),
+                      CHAM_UTIL=_F(NOM_CHAM='SIGM_NOEU',
+                                   CRITERE='VMIS',
+                                   NUME_CHAM_RESU=2,),
                       CRITERE='RELATIF',
                       INFO=1,)
 
 #2      Calculs elementaires et assemblages               CPU (USER+SYST/SYST/ELAPS):      0.00      0.00      0.00
-  # Memory (Mo):    491.86 /    487.12 /     44.30 /     34.09 (VmPeak / VmSize / Optimum / Minimum)
-  # Fin orders No:  0012 user+syst:          0.00S (syst:          0.00S, Elaps:          0.00S)
+  # Memory (Mo):    491.55 /    486.79 /     44.30 /     34.09 (VmPeak / VmSize / Optimum / Minimum)
+  # Fin orders No:  0012 user+syst:          0.02S (syst:          0.00S, Elaps:          0.02S)
   # ------------------------------------------------------------------------------------------
 
 .. __stg1_cmd10:1
@@ -394,11 +402,11 @@ Propriétés définies dans le matériau: ELAS.
 
 
 Création du fichier au format MED 3.3.1.
-  # Memory (Mo):    491.86 /    487.12 /     44.30 /     34.09 (VmPeak / VmSize / Optimum / Minimum)
+  # Memory (Mo):    491.55 /    486.94 /     44.30 /     34.09 (VmPeak / VmSize / Optimum / Minimum)
   # Fin orders No:  0013 user+syst:          0.03S (syst:          0.01S, Elaps:          0.02S)
   # ------------------------------------------------------------------------------------------
 
-.. __stg1_txt62
+.. __stg1_txt66
   # ------------------------------------------------------------------------------------------
   # Commands No:  0014 Concept of the type:  -
   # ------------------------------------------------------------------------------------------
@@ -425,11 +433,11 @@ Création du fichier au format MED 3.3.1.
  STRUCTURE DU CONCEPT Result   CALCULE POUR 1 NUMERO D'ORDRE
 
  LISTE DES NOMS SYMBOLIQUES:
- ! ---------- !----------------!----------------!----------------!
- ! NUME_ORDRE !      DEPL      !   SIEF_ELGA    !   SIEQ_NOEU    !
- ! ---------- !----------------!----------------!----------------!
- !          1 !     DEPL_R     !     SIEF_R     !     SIEF_R     !
- ! ---------- !----------------!----------------!----------------!
+ ! ---------- !----------------!----------------!----------------!----------------!----------------!
+ ! NUME_ORDRE !      DEPL      !   SIEF_ELGA    !   SIGM_NOEU    !   SIEQ_NOEU    !   UT02_NOEU    !
+ ! ---------- !----------------!----------------!----------------!----------------!----------------!
+ !          1 !     DEPL_R     !     SIEF_R     !     SIEF_R     !     SIEF_R     !     NEUT_R     !
+ ! ---------- !----------------!----------------!----------------!----------------!----------------!
 
  LISTE DES NOMS DE VARIABLES D'ACCES:
                                       INST             DE TYPE  R
@@ -444,7 +452,7 @@ Création du fichier au format MED 3.3.1.
  Concepts de la base: G
     Nom       Type                 Taille (Mo)         Nombre      Nombre de
                                                      d'objets       segments
-    TOTAL                                27.48            165            289
+    TOTAL                                27.52            179            307
   
     mesh       MAILLAGE_SDASTER           0.02             34             51
     model      MODELE_SDASTER             0.01              8             13
@@ -453,7 +461,7 @@ Création du fichier au format MED 3.3.1.
     func       FONCTION_SDASTER           0.00              4              4
     PlateBC    CHAR_MECA                  0.01             23             43
     PlateLD    CHAR_MECA                  0.00              8             13
-    Result     EVOL_ELAS                  0.14             32             43
+    Result     EVOL_ELAS                  0.18             46             61
     &FOZERO                               0.00              2              2
     &&_NUM_C                              0.00              1              1
     &CATA.AC                              0.00              2              4
@@ -477,9 +485,9 @@ Création du fichier au format MED 3.3.1.
      Volume des accès en lecture             :          5.47 Mo.
      Nombre total d'accès en écriture        :  62
      Volume des accès en écriture            :         48.44 Mo.
-     Nombre d'identificateurs utilisés       :  304
+     Nombre d'identificateurs utilisés       :  322
      Taille maximum du répertoire            :  2000
-     Pourcentage d'utilisation du répertoire :  15 %
+     Pourcentage d'utilisation du répertoire :  16 %
 
 
      Nom de la base                          :  VOLATILE
@@ -490,15 +498,15 @@ Création du fichier au format MED 3.3.1.
      Volume des accès en lecture             :          0.00 Mo.
      Nombre total d'accès en écriture        :  6
      Volume des accès en écriture            :          4.69 Mo.
-     Nombre d'identificateurs utilisés       :  558
+     Nombre d'identificateurs utilisés       :  574
      Taille maximum du répertoire            :  2000
-     Pourcentage d'utilisation du répertoire :  27 %
+     Pourcentage d'utilisation du répertoire :  28 %
 
  <FIN> Arrêt normal dans "FIN".
  <I> <FIN> ARRET NORMAL DANS "FIN" PAR APPEL A "JEFINI".
 
  The memory requested from launching is over-estimated, it is of 2048.00 Mo. 
- The peak report used is of 491.86 Mo. 
+ The peak report used is of 491.55 Mo. 
  
 
 
@@ -516,15 +524,15 @@ Création du fichier au format MED 3.3.1.
   
  <I> <FIN> MEMOIRE JEVEUX MINIMALE REQUISE POUR L'EXECUTION :                      34.09 Mo
  <I> <FIN> MEMOIRE JEVEUX OPTIMALE REQUISE POUR L'EXECUTION :                      44.30 Mo
- <I> <FIN> MAXIMUM DE MEMOIRE UTILISEE PAR LE PROCESSUS LORS DE L'EXECUTION :     491.86 Mo
+ <I> <FIN> MAXIMUM DE MEMOIRE UTILISEE PAR LE PROCESSUS LORS DE L'EXECUTION :     491.55 Mo
   
  <I>       FERMETURE DES BASES EFFECTUEE
   
    STATISTIQUES CONCERNANT L'ALLOCATION DYNAMIQUE :
      TAILLE CUMULEE MAXIMUM            :                   44  Mo.
      TAILLE CUMULEE LIBEREE            :                    6  Mo.
-     NOMBRE TOTAL D'ALLOCATIONS        :                 5049
-     NOMBRE TOTAL DE LIBERATIONS       :                 5029
+     NOMBRE TOTAL D'ALLOCATIONS        :                 5565
+     NOMBRE TOTAL DE LIBERATIONS       :                 5545
      APPELS AU MECANISME DE LIBERATION :                    0
      TAILLE MEMOIRE CUMULEE RECUPEREE  :                    0  Mo.
      VOLUME DES LECTURES               :                    0  Mo.
@@ -536,48 +544,48 @@ Création du fichier au format MED 3.3.1.
    MEMOIRE JEVEUX OPTIMALE REQUISE POUR L'EXECUTION :      44.30 Mo
      - LIMITE LES ACCES DISQUE
      - AMELIORE LA VITESSE D'EXECUTION
-   MAXIMUM DE MEMOIRE UTILISEE PAR LE PROCESSUS     :     491.86 Mo
+   MAXIMUM DE MEMOIRE UTILISEE PAR LE PROCESSUS     :     491.55 Mo
      - COMPREND LA MEMOIRE CONSOMMEE PAR  JEVEUX, 
        LE SUPERVISEUR PYTHON, LES LIBRAIRIES EXTERNES
   
- <I>       FIN D'EXECUTION LE : DI-17-NOVE-2019 13:26:41
+ <I>       FIN D'EXECUTION LE : DI-24-NOVE-2019 16:48:21
 
 
   <I> Informations sur les temps d'exécution
       Temps cpu user total                    0.74 s
-      Temps cpu systeme total                 0.12 s
+      Temps cpu systeme total                 0.17 s
       Temps elapsed total                     0.90 s
       Temps restant                         809.10 s
 
 
  The signup of the saved base is (with the address 0): 
-  d591fea0814e1e030be8321c2e63d5c156640dff 
+  645f9d7581de5f10397e4b2782c6903ede25b088 
 
  ********************************************************************************
  * COMMAND                  :       USER :     SYSTEM :   USER+SYS :    ELAPSED *
  ********************************************************************************
- * init (jdc)               :       0.60 :       0.04 :       0.64 :       0.66 *
+ * init (jdc)               :       0.61 :       0.06 :       0.67 :       0.66 *
  *  . compile               :       0.00 :       0.00 :       0.00 :       0.00 *
- *  . exec_compile          :       0.12 :       0.00 :       0.12 :       0.12 *
- *  . report                :       0.00 :       0.00 :       0.00 :       0.00 *
+ *  . exec_compile          :       0.11 :       0.01 :       0.12 :       0.12 *
+ *  . report                :       0.01 :       0.00 :       0.01 :       0.01 *
  *  . build                 :       0.00 :       0.00 :       0.00 :       0.00 *
- * DEBUT                    :       0.03 :       0.03 :       0.06 :       0.07 *
- * LIRE_MAILLAGE            :       0.01 :       0.00 :       0.01 :       0.01 *
- * MODI_MAILLAGE            :       0.00 :       0.00 :       0.00 :       0.01 *
- * AFFE_MODELE              :       0.01 :       0.01 :       0.02 :       0.00 *
+ * DEBUT                    :       0.01 :       0.06 :       0.07 :       0.07 *
+ * LIRE_MAILLAGE            :       0.00 :       0.00 :       0.00 :       0.01 *
+ * MODI_MAILLAGE            :       0.00 :       0.00 :       0.00 :       0.00 *
+ * AFFE_MODELE              :       0.01 :       0.00 :       0.01 :       0.01 *
  * DEFI_MATERIAU            :       0.00 :       0.00 :       0.00 :       0.00 *
  * AFFE_MATERIAU            :       0.01 :       0.00 :       0.01 :       0.01 *
- * DEFI_FONCTION            :       0.00 :       0.00 :       0.00 :       0.01 *
+ * DEFI_FONCTION            :       0.00 :       0.00 :       0.00 :       0.00 *
+ * AFFE_CHAR_MECA           :       0.01 :       0.00 :       0.01 :       0.01 *
  * AFFE_CHAR_MECA           :       0.00 :       0.00 :       0.00 :       0.00 *
- * AFFE_CHAR_MECA           :       0.00 :       0.00 :       0.00 :       0.00 *
- * MECA_STATIQUE            :       0.04 :       0.00 :       0.04 :       0.04 *
- * CALC_CHAMP               :       0.00 :       0.00 :       0.00 :       0.00 *
+ * MECA_STATIQUE            :       0.03 :       0.00 :       0.03 :       0.03 *
+ * CALC_CHAMP               :       0.02 :       0.00 :       0.02 :       0.02 *
  * IMPR_RESU                :       0.02 :       0.01 :       0.03 :       0.02 *
- * FIN                      :       0.02 :       0.04 :       0.06 :       0.08 *
- *  . part Superviseur      :       0.66 :       0.07 :       0.73 :       0.76 *
- *  . part Fortran          :       0.09 :       0.06 :       0.15 :       0.16 *
+ * FIN                      :       0.01 :       0.04 :       0.05 :       0.07 *
+ *  . part Superviseur      :       0.63 :       0.12 :       0.75 :       0.74 *
+ *  . part Fortran          :       0.11 :       0.05 :       0.16 :       0.18 *
  ********************************************************************************
- * TOTAL_JOB                :       0.74 :       0.12 :       0.86 :       0.90 *
+ * TOTAL_JOB                :       0.74 :       0.17 :       0.91 :       0.90 *
  ********************************************************************************
 
-EXECUTION_CODE_ASTER_EXIT_7622-0007-GAKubuntuDesktop=0
+EXECUTION_CODE_ASTER_EXIT_7111-0004-GAKubuntuDesktop=0

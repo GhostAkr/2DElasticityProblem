@@ -41,7 +41,7 @@ PlateBC = AFFE_CHAR_MECA(identifier='6:1',
 PlateLD = AFFE_CHAR_MECA(identifier='7:1',
                          MODELE=model,
                          PRES_REP=_F(GROUP_MA=('CD_Group', ),
-                                     PRES=-1e+26))
+                                     PRES=-800000000.0))
 
 Result = MECA_STATIQUE(identifier='8:1',
                        CHAM_MATER=fieldmat,
@@ -51,6 +51,10 @@ Result = MECA_STATIQUE(identifier='8:1',
 
 Result = CALC_CHAMP(identifier='9:1',
                     reuse=Result,
+                    CHAM_UTIL=_F(CRITERE='VMIS',
+                                 NOM_CHAM='SIGM_NOEU',
+                                 NUME_CHAM_RESU=2),
+                    CONTRAINTE=('SIGM_NOEU', ),
                     CRITERES=('SIEQ_NOEU', ),
                     RESULTAT=Result)
 

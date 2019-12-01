@@ -1,4 +1,4 @@
 #!/bin/bash
 export ASTER_TMPDIR=/tmp
 wrap=$(which xterm && echo ' -e ')
-as_run --num_job=7622-0007-GAKubuntuDesktop export 2> ./logs/stderr_command_salome.log
+as_run --num_job=7111-0004-GAKubuntuDesktop export 2> ./logs/stderr_command_salome.log
